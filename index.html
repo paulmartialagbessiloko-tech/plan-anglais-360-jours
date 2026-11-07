@@ -2,478 +2,797 @@
 <html lang="fr">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>L'anglais en 360 jours</title>
-<meta name="description" content="Un plan complet pour passer d'un niveau intermédiaire au niveau C1 en anglais en 360 jours : routine quotidienne, 52 sujets de conversation, exercices et bilans.">
+<meta name="description" content="Passe d'un niveau intermédiaire au niveau C1 en anglais en 360 jours : 1 h 30 par jour, 52 sujets de conversation, exercices guidés et un bilan tous les 90 jours.">
+<meta name="theme-color" content="#0f2a4a">
+<meta property="og:title" content="L'anglais en 360 jours">
+<meta property="og:description" content="Un plan complet et gratuit pour atteindre le niveau C1 en anglais.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f2a4a'/%3E%3Ctext x='32' y='42' font-family='Arial' font-weight='700' font-size='26' text-anchor='middle' fill='%23ffc857'%3E360%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <style>
-/* Layout: a single long page with a sticky table of contents on wide screens; a "today" panel up top tells the reader what to do now. */
+/* Design: deep navy "night sky" hero with a warm marker-yellow accent; each of the four phases owns a colour that follows it everywhere (cards, topics, grammar, timeline). Mobile-first, cards over tables. */
 :root {
-  --ink: #17233a;
-  --paper: #f6f4ef;
+  --navy: #0f2a4a;
+  --navy-2: #173c66;
+  --ink: #142033;
+  --muted: #5a6478;
+  --bg: #f5f6fa;
   --surface: #ffffff;
-  --muted: #5b6577;
-  --line: #e0ddd5;
-  --accent: #1d4f8c;
-  --accent-soft: #e5edf7;
-  --marker: #f2b33d;
-  --marker-soft: #fdf1d8;
-  --good: #23784f;
-  --font-display: "DM Serif Display", Georgia, "Times New Roman", serif;
-  --font-body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  --line: #e3e6ee;
+  --sun: #ffc857;
+  --sun-soft: #fff4d6;
+  --good: #1f9d63;
+  --bad: #d64545;
+  --p1: #0e9f8e;
+  --p2: #2f6fdf;
+  --p3: #7a4fd6;
+  --p4: #e0782b;
+  --radius: 18px;
+  --shadow: 0 1px 2px rgba(15, 42, 74, .06), 0 8px 24px rgba(15, 42, 74, .07);
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Plus Jakarta Sans", "Segoe UI", system-ui, sans-serif;
   color-scheme: light;
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --ink: #e7eaf0; --paper: #11161f; --surface: #19202c; --muted: #9aa4b5; --line: #2b3444;
-    --accent: #8db4ea; --accent-soft: #1f2d44; --marker: #f2b33d; --marker-soft: #3a2f17; --good: #6fcf9b;
+    --ink: #e8ecf4; --muted: #9ba6ba; --bg: #0b1424; --surface: #131f33; --line: #233149;
+    --sun-soft: #3a3016; --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.25);
     color-scheme: dark;
   }
 }
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body { margin: 0; background: var(--paper); color: var(--ink); font: 17px/1.6 var(--font-body); }
-a { color: var(--accent); }
-h1, h2, h3 { font-family: var(--font-display); font-weight: 400; line-height: 1.15; text-wrap: balance; }
-h2 { font-size: 34px; margin: 0 0 12px; }
-h3 { font-size: 23px; margin: 28px 0 10px; }
-p { max-width: 68ch; }
-button, input { font: inherit; color: inherit; }
-:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-.mark { background: linear-gradient(transparent 58%, var(--marker) 58%); padding: 0 2px; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.65 var(--font-body); overflow-x: hidden; }
+img, svg { max-width: 100%; }
+a { color: inherit; }
+h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.1; margin: 0; text-wrap: balance; letter-spacing: -.01em; }
+p { margin: 0; }
+button, input, select { font: inherit; color: inherit; }
+:focus-visible { outline: 3px solid var(--sun); outline-offset: 3px; border-radius: 6px; }
+.container { width: 100%; max-width: 1180px; margin: 0 auto; padding: 0 max(20px, env(safe-area-inset-left)); }
 
-.wrap { max-width: 1160px; margin: 0 auto; padding: 0 20px; }
-header.hero { padding: 56px 0 32px; }
-.hero h1 { font-size: clamp(40px, 7vw, 68px); margin: 0 0 14px; }
-.hero .lead { font-size: 20px; color: var(--muted); max-width: 60ch; margin: 0; }
+/* ---------- Top bar ---------- */
+.topbar { position: sticky; top: 0; z-index: 50; background: rgba(15, 42, 74, .92); backdrop-filter: saturate(160%) blur(12px); -webkit-backdrop-filter: saturate(160%) blur(12px); color: #fff; padding-top: env(safe-area-inset-top); }
+.topbar .container { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 16px; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font: 800 19px var(--font-display); }
+.brand .logo { width: 36px; height: 36px; border-radius: 10px; background: var(--sun); color: var(--navy); display: grid; place-items: center; font-size: 13px; }
+.menu { display: flex; gap: 4px; list-style: none; margin: 0; padding: 0; }
+.menu a { text-decoration: none; padding: 8px 12px; border-radius: 999px; font-size: 14.5px; font-weight: 500; color: rgba(255,255,255,.85); }
+.menu a:hover { background: rgba(255,255,255,.1); color: #fff; }
+.menu a.cta { background: var(--sun); color: var(--navy); font-weight: 700; }
+.burger { display: none; background: none; border: 0; width: 44px; height: 44px; border-radius: 10px; cursor: pointer; color: #fff; }
+.burger span { display: block; width: 22px; height: 2px; background: currentColor; margin: 5px auto; transition: transform .25s, opacity .25s; }
+.burger[aria-expanded=true] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.burger[aria-expanded=true] span:nth-child(2) { opacity: 0; }
+.burger[aria-expanded=true] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-.today { margin-top: 28px; background: var(--surface); border: 1px solid var(--line); border-left: 6px solid var(--marker); border-radius: 10px; padding: 20px 22px; display: grid; gap: 14px; }
-.today-top { display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: end; justify-content: space-between; }
-.today label { display: block; font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
-.today input[type=date] { border: 1px solid var(--line); background: var(--paper); border-radius: 6px; padding: 6px 10px; }
-.daynum { font: 44px/1 var(--font-display); font-variant-numeric: tabular-nums; }
-.daynum small { font: 16px var(--font-body); color: var(--muted); margin-left: 6px; }
-.today-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 12px; }
-.today-card { background: var(--paper); border-radius: 8px; padding: 12px 14px; }
-.today-card b { display: block; font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; font-weight: 600; }
-.progress { height: 8px; background: var(--line); border-radius: 999px; overflow: hidden; }
-.progress span { display: block; height: 100%; background: var(--accent); }
+/* ---------- Hero ---------- */
+.hero { position: relative; background: radial-gradient(1200px 500px at 85% -10%, #2b5a94 0%, transparent 60%), radial-gradient(700px 400px at 0% 110%, #1d4a7a 0%, transparent 60%), var(--navy); color: #fff; padding: 72px 0 120px; overflow: hidden; }
+.hero::after { content: ""; position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,.08) 1px, transparent 1px); background-size: 22px 22px; mask-image: linear-gradient(to bottom, #000 30%, transparent); pointer-events: none; }
+.hero .container { position: relative; z-index: 1; display: grid; grid-template-columns: 1.25fr 1fr; gap: 48px; align-items: center; }
+.pill { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.18); padding: 6px 14px; border-radius: 999px; font-size: 14px; font-weight: 500; }
+.pill .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--sun); box-shadow: 0 0 0 4px rgba(255,200,87,.25); }
+.hero h1 { font-size: clamp(42px, 7.2vw, 80px); font-weight: 800; margin: 20px 0 18px; }
+.hero h1 .hl { color: var(--sun); white-space: nowrap; }
+.hero .lead { font-size: clamp(17px, 2vw, 20px); color: rgba(255,255,255,.82); max-width: 54ch; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 12px 22px; border-radius: 999px; font-weight: 700; text-decoration: none; border: 0; cursor: pointer; transition: transform .15s, box-shadow .15s, background .15s; }
+.btn:hover { transform: translateY(-2px); }
+.btn-sun { background: var(--sun); color: var(--navy); box-shadow: 0 8px 24px rgba(255,200,87,.35); }
+.btn-ghost { background: rgba(255,255,255,.1); color: #fff; border: 1px solid rgba(255,255,255,.25); }
+.btn-primary { background: var(--navy); color: #fff; }
+@media (prefers-color-scheme: dark) { .btn-primary { background: var(--sun); color: var(--navy); } }
 
-.layout { display: grid; grid-template-columns: 220px 1fr; gap: 48px; padding: 24px 0 80px; }
-nav.toc { position: sticky; top: 20px; align-self: start; font-size: 15px; }
-nav.toc ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
-nav.toc a { text-decoration: none; color: var(--muted); display: block; padding: 3px 0 3px 10px; border-left: 2px solid var(--line); }
-nav.toc a:hover { color: var(--ink); border-color: var(--accent); }
-nav.toc .sub a { padding-left: 22px; font-size: 14px; }
-main section { padding: 28px 0; border-top: 1px solid var(--line); scroll-margin-top: 12px; }
-main section:first-child { border-top: none; padding-top: 0; }
-.kicker { font-size: 13px; text-transform: uppercase; letter-spacing: .08em; color: var(--accent); font-weight: 700; margin-bottom: 4px; }
+.hero-card { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.15); border-radius: 24px; padding: 26px; backdrop-filter: blur(6px); }
+.hero-card h3 { font-size: 15px; font-family: var(--font-body); font-weight: 600; color: rgba(255,255,255,.7); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 16px; }
+.mini-road { display: grid; gap: 12px; }
+.mini-road div { display: grid; grid-template-columns: 40px 1fr auto; gap: 12px; align-items: center; background: rgba(255,255,255,.06); padding: 12px 14px; border-radius: 14px; }
+.mini-road .n { width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; font: 800 18px var(--font-display); color: #fff; }
+.mini-road b { display: block; font-size: 16px; }
+.mini-road small { color: rgba(255,255,255,.65); font-size: 13px; }
+.mini-road .lvl { font: 800 14px var(--font-display); background: rgba(255,255,255,.12); padding: 4px 10px; border-radius: 999px; }
 
-.table-wrap { overflow-x: auto; margin: 14px 0; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
-table { border-collapse: collapse; width: 100%; font-size: 15.5px; }
-th, td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
-th { background: var(--accent-soft); font-weight: 600; white-space: nowrap; }
-tr:last-child td { border-bottom: none; }
-td.num { font-variant-numeric: tabular-nums; width: 52px; color: var(--muted); }
-tr.current td { background: var(--marker-soft); }
-tr.current td.num { color: var(--ink); font-weight: 700; }
+.stats { position: relative; z-index: 2; margin-top: -64px; }
+.stats .grid { display: grid; grid-template-columns: repeat(4, 1fr); background: var(--surface); border-radius: 22px; box-shadow: var(--shadow); overflow: hidden; }
+.stat { padding: 24px 20px; text-align: center; border-right: 1px solid var(--line); }
+.stat:last-child { border-right: 0; }
+.stat b { display: block; font: 800 clamp(30px, 4vw, 42px)/1 var(--font-display); color: var(--navy); font-variant-numeric: tabular-nums; }
+@media (prefers-color-scheme: dark) { .stat b { color: var(--sun); } }
+.stat span { font-size: 14px; color: var(--muted); }
 
-ol.steps, ul.plain { padding-left: 22px; max-width: 72ch; }
-ol.steps li, ul.plain li { margin: 6px 0; }
+/* ---------- Sections ---------- */
+section.block { padding: 96px 0 0; }
+.head { max-width: 720px; margin-bottom: 36px; }
+.eyebrow { display: inline-block; font-size: 13px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--p2); margin-bottom: 10px; }
+.head h2 { font-size: clamp(32px, 4.6vw, 50px); font-weight: 800; }
+.head p { margin-top: 14px; font-size: 18px; color: var(--muted); }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
 
-.roadmap { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin: 18px 0 6px; }
-.phase { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px; display: grid; gap: 6px; align-content: start; }
-.phase.now { border: 2px solid var(--accent); }
-.phase .pnum { font-size: 13px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: .05em; }
-.phase h4 { font: 22px var(--font-display); margin: 0; }
-.phase .dates { font-size: 14px; color: var(--muted); }
-.phase ul { margin: 6px 0 0; padding-left: 18px; font-size: 15px; }
-.gate { margin-top: 8px; font-size: 14px; padding-top: 8px; border-top: 1px dashed var(--line); }
-.gate b { color: var(--accent); }
+/* ---------- Dashboard ---------- */
+.dash { display: grid; grid-template-columns: 340px 1fr; gap: 20px; align-items: start; }
+.dash-side { padding: 26px; display: grid; gap: 20px; align-content: start; }
+.ring { position: relative; width: 168px; height: 168px; margin: 0 auto; }
+.ring svg { transform: rotate(-90deg); }
+.ring .center { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; }
+.ring .center b { font: 800 44px/1 var(--font-display); display: block; font-variant-numeric: tabular-nums; }
+.ring .center small { color: var(--muted); font-size: 13px; }
+.field label { display: block; font-size: 13px; font-weight: 600; color: var(--muted); margin-bottom: 6px; }
+.field input, .field select { width: 100%; min-height: 46px; border: 1px solid var(--line); background: var(--bg); border-radius: 12px; padding: 10px 12px; }
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 999px; font-size: 13.5px; font-weight: 600; background: var(--bg); border: 1px solid var(--line); }
+.chip .sw { width: 10px; height: 10px; border-radius: 50%; }
+.streak { display: flex; align-items: center; gap: 14px; background: var(--sun-soft); border-radius: 14px; padding: 14px 16px; }
+.streak .flame { font-size: 28px; line-height: 1; }
+.streak b { font: 800 24px var(--font-display); display: block; line-height: 1.1; }
+.streak small { color: var(--muted); font-size: 13px; }
 
-.prompt { position: relative; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px; margin: 12px 0; max-width: 78ch; }
-.prompt pre { margin: 0; white-space: pre-wrap; font: 14.5px/1.55 ui-monospace, "Cascadia Code", Consolas, monospace; }
-.copy { position: absolute; top: 8px; right: 8px; border: 1px solid var(--line); background: var(--paper); border-radius: 6px; padding: 3px 10px; font-size: 13px; cursor: pointer; }
-.copy:hover { border-color: var(--accent); }
+.dash-main { display: grid; gap: 20px; align-content: start; }
+.today-theme { padding: 26px; position: relative; overflow: hidden; }
+.today-theme .tag { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; }
+.today-theme h3 { font-size: clamp(26px, 3.4vw, 36px); margin: 8px 0 10px; font-weight: 800; }
+.today-theme .q { font-size: 18px; font-style: italic; border-left: 4px solid var(--sun); padding-left: 14px; margin: 14px 0 18px; }
+.today-theme .angle-line { color: var(--muted); }
+.actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.tasks { padding: 22px 26px; }
+.tasks-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 12px; flex-wrap: wrap; }
+.tasks-head h3 { font-size: 22px; }
+.tasks-head span { color: var(--muted); font-size: 14px; font-variant-numeric: tabular-nums; }
+.task { display: grid; grid-template-columns: 28px 1fr auto; gap: 12px; align-items: center; padding: 12px 0; border-top: 1px solid var(--line); cursor: pointer; }
+.task input { appearance: none; -webkit-appearance: none; width: 26px; height: 26px; border: 2px solid var(--line); border-radius: 8px; margin: 0; display: grid; place-items: center; cursor: pointer; transition: background .15s, border-color .15s; }
+.task input:checked { background: var(--good); border-color: var(--good); }
+.task input:checked::after { content: ""; width: 7px; height: 13px; border: solid #fff; border-width: 0 3px 3px 0; transform: rotate(45deg) translate(-1px, -1px); }
+.task .t b { display: block; font-weight: 600; }
+.task .t small { color: var(--muted); font-size: 13.5px; }
+.task input:checked + .t b { text-decoration: line-through; color: var(--muted); }
+.task .dur { font-size: 13px; font-weight: 700; color: var(--muted); background: var(--bg); padding: 4px 10px; border-radius: 999px; white-space: nowrap; }
+.bar { height: 8px; background: var(--bg); border-radius: 999px; overflow: hidden; margin-top: 6px; }
+.bar span { display: block; height: 100%; background: linear-gradient(90deg, var(--p1), var(--good)); border-radius: 999px; transition: width .3s; }
 
-.tabs { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0 4px; }
-.tabs button { border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 5px 14px; cursor: pointer; font-size: 15px; }
-.tabs button[aria-selected=true] { background: var(--accent); border-color: var(--accent); color: var(--surface); font-weight: 600; }
+/* ---------- Phases ---------- */
+.phases { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.phase { padding: 24px; display: flex; flex-direction: column; gap: 12px; border-top: 6px solid var(--c); position: relative; }
+.phase.now { outline: 3px solid var(--c); outline-offset: 2px; }
+.phase .now-badge { position: absolute; top: 16px; right: 16px; background: var(--c); color: #fff; font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 999px; display: none; }
+.phase.now .now-badge { display: inline-block; }
+.phase .num { width: 48px; height: 48px; border-radius: 14px; background: var(--c); color: #fff; display: grid; place-items: center; font: 800 22px var(--font-display); }
+.phase h3 { font-size: 26px; }
+.phase .when { font-size: 14px; color: var(--muted); font-weight: 500; }
+.phase .motto { font-weight: 600; color: var(--c); }
+.phase ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; font-size: 15px; }
+.phase li { padding-left: 22px; position: relative; }
+.phase li::before { content: ""; position: absolute; left: 0; top: 9px; width: 8px; height: 8px; border-radius: 50%; background: var(--c); }
+.phase .gate { margin-top: auto; padding-top: 14px; border-top: 1px dashed var(--line); font-size: 14px; display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+.phase .gate b { color: var(--c); }
 
-.checks { list-style: none; padding: 0; display: grid; gap: 8px; max-width: 72ch; }
-.checks label { display: flex; gap: 10px; align-items: flex-start; cursor: pointer; }
-.checks input { margin-top: 5px; width: 18px; height: 18px; accent-color: var(--good); }
-.checks .date { font-variant-numeric: tabular-nums; color: var(--muted); }
+/* ---------- Routine ---------- */
+.routine { display: grid; grid-template-columns: 1.1fr 1fr; gap: 20px; }
+.day-plan { padding: 26px; }
+.day-plan h3, .week-plan h3 { font-size: 24px; margin-bottom: 18px; }
+.slot { display: grid; grid-template-columns: 56px 1fr; gap: 16px; padding-bottom: 18px; position: relative; }
+.slot:not(:last-child)::before { content: ""; position: absolute; left: 27px; top: 56px; bottom: 0; width: 2px; background: var(--line); }
+.slot .ico { width: 56px; height: 56px; border-radius: 16px; display: grid; place-items: center; font-size: 26px; background: var(--bg); }
+.slot b { display: block; font-size: 17px; }
+.slot .meta { font-size: 13px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: .05em; }
+.slot p { color: var(--muted); font-size: 15px; }
+.week-plan { padding: 26px; }
+.days { display: grid; gap: 10px; }
+.dayc { display: grid; grid-template-columns: 58px 1fr; gap: 14px; align-items: center; padding: 12px; border-radius: 14px; background: var(--bg); }
+.dayc .d { font: 800 15px var(--font-display); text-align: center; background: var(--surface); border-radius: 10px; padding: 8px 0; border: 1px solid var(--line); }
+.dayc.today-d { background: var(--sun-soft); }
+.dayc.today-d .d { background: var(--sun); color: var(--navy); border-color: var(--sun); }
+.dayc small { color: var(--muted); display: block; font-size: 13.5px; }
+.note { margin-top: 18px; padding: 16px 18px; border-radius: 14px; background: var(--sun-soft); font-size: 15px; }
 
-.callout { background: var(--accent-soft); border-radius: 8px; padding: 12px 16px; max-width: 72ch; }
-footer { border-top: 1px solid var(--line); padding: 24px 0 40px; color: var(--muted); font-size: 14px; }
+/* ---------- Exercises ---------- */
+.ex-nav { display: flex; gap: 8px; overflow-x: auto; padding: 4px 2px 12px; margin-bottom: 18px; scrollbar-width: thin; -webkit-overflow-scrolling: touch; }
+.ex-nav button { flex: none; border: 1px solid var(--line); background: var(--surface); padding: 10px 18px; border-radius: 999px; font-weight: 600; cursor: pointer; min-height: 44px; white-space: nowrap; }
+.ex-nav button[aria-selected=true] { background: var(--navy); color: #fff; border-color: var(--navy); }
+@media (prefers-color-scheme: dark) { .ex-nav button[aria-selected=true] { background: var(--sun); color: var(--navy); border-color: var(--sun); } }
+.panel { display: none; }
+.panel.active { display: block; animation: fade .3s ease; }
+@keyframes fade { from { opacity: .4; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.panel-intro { padding: 24px 26px; margin-bottom: 18px; }
+.panel-intro p { color: var(--muted); max-width: 70ch; }
+.panel-intro h3 { font-size: 26px; margin-bottom: 8px; }
 
+.phase-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+.phase-tabs button { border: 2px solid var(--c); background: transparent; color: var(--ink); padding: 8px 16px; border-radius: 999px; font-weight: 600; cursor: pointer; min-height: 44px; }
+.phase-tabs button[aria-selected=true] { background: var(--c); color: #fff; }
+.topics { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
+.topic { padding: 18px; display: grid; gap: 8px; align-content: start; border-left: 5px solid var(--c); }
+.topic .wk { font-size: 12.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--c); display: flex; justify-content: space-between; }
+.topic h4 { font-size: 20px; }
+.topic p { font-size: 15px; color: var(--muted); font-style: italic; }
+.topic.current { background: var(--sun-soft); border-color: var(--sun); box-shadow: 0 0 0 2px var(--sun), var(--shadow); }
+.topic.current .wk::after { content: "Cette semaine"; background: var(--sun); color: var(--navy); padding: 1px 8px; border-radius: 999px; letter-spacing: 0; text-transform: none; }
+
+.grid2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.mini { padding: 20px; display: grid; gap: 8px; align-content: start; }
+.mini .big { font-size: 30px; line-height: 1; }
+.mini h4 { font-size: 19px; }
+.mini p { color: var(--muted); font-size: 15px; }
+.ph { display: inline-block; justify-self: start; font-size: 12px; font-weight: 700; color: #fff; background: var(--c); padding: 3px 10px; border-radius: 999px; justify-self: start; }
+.prompt { margin-top: 18px; background: #0d1b2e; color: #e6eefc; border-radius: 16px; padding: 18px 20px; position: relative; }
+.prompt .ptitle { font-size: 13px; font-weight: 700; color: var(--sun); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 10px; }
+.prompt pre { margin: 0; white-space: pre-wrap; font: 14.5px/1.6 ui-monospace, "Cascadia Code", Menlo, Consolas, monospace; }
+.prompt .copy { position: absolute; top: 12px; right: 12px; background: var(--sun); color: var(--navy); border: 0; border-radius: 999px; padding: 6px 14px; font-weight: 700; font-size: 13px; cursor: pointer; }
+.angles { display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px; margin-top: 18px; }
+.angle { padding: 14px; text-align: center; }
+.angle b { display: block; font: 800 15px var(--font-display); }
+.angle span { font-size: 13.5px; color: var(--muted); }
+.angle.today-d { background: var(--sun-soft); border-color: var(--sun); }
+
+.gram { padding: 18px 20px; display: grid; gap: 10px; border-top: 5px solid var(--c); }
+.gram h4 { font-size: 18px; }
+.gram .wrong, .gram .right { font-size: 15px; padding: 8px 12px; border-radius: 10px; display: flex; gap: 8px; align-items: baseline; }
+.gram .wrong { background: rgba(214,69,69,.1); }
+.gram .wrong::before { content: "✗"; color: var(--bad); font-weight: 800; }
+.gram .right { background: rgba(31,157,99,.1); }
+.gram .right::before { content: "✓"; color: var(--good); font-weight: 800; }
+.gram .tip { font-size: 14.5px; color: var(--muted); }
+
+.steps { counter-reset: s; display: grid; gap: 12px; margin-top: 18px; }
+.step { padding: 18px 20px 18px 66px; position: relative; }
+.step::before { counter-increment: s; content: counter(s); position: absolute; left: 18px; top: 18px; width: 34px; height: 34px; border-radius: 50%; background: var(--navy); color: #fff; display: grid; place-items: center; font: 800 16px var(--font-display); }
+@media (prefers-color-scheme: dark) { .step::before { background: var(--sun); color: var(--navy); } }
+.step b { display: block; font-size: 17px; }
+.step p { color: var(--muted); font-size: 15px; }
+
+.flash { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 18px; }
+.flashcard { perspective: 900px; height: 120px; cursor: pointer; }
+.flashcard .inner { position: relative; width: 100%; height: 100%; transition: transform .5s; transform-style: preserve-3d; }
+.flashcard.flipped .inner { transform: rotateY(180deg); }
+.flashcard .face { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; display: grid; place-items: center; text-align: center; padding: 14px; border-radius: 16px; border: 1px solid var(--line); background: var(--surface); box-shadow: var(--shadow); font-size: 16px; }
+.flashcard .face small { display: block; font-size: 11.5px; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 4px; }
+.flashcard .back { transform: rotateY(180deg); background: var(--navy); color: #fff; border-color: var(--navy); }
+.flashcard .back small { color: var(--sun); }
+.flashcard .back strong { color: var(--sun); }
+
+.checklist { list-style: none; padding: 0; margin: 18px 0 0; display: grid; gap: 10px; }
+.checklist li { padding: 14px 18px 14px 50px; position: relative; }
+.checklist li::before { content: "✓"; position: absolute; left: 16px; top: 14px; width: 22px; height: 22px; border-radius: 50%; background: var(--good); color: #fff; display: grid; place-items: center; font-size: 13px; font-weight: 800; }
+
+/* ---------- Resources ---------- */
+.res { padding: 22px; display: grid; gap: 8px; align-content: start; text-decoration: none; transition: transform .15s, box-shadow .15s; }
+a.res:hover { transform: translateY(-3px); box-shadow: 0 14px 30px rgba(15,42,74,.12); }
+.res .ic { font-size: 30px; line-height: 1; }
+.res h4 { font-size: 19px; }
+.res p { font-size: 14.5px; color: var(--muted); }
+.res .price { font-size: 12.5px; font-weight: 700; color: var(--good); }
+.res .price.paid { color: var(--p4); }
+
+/* ---------- Milestones ---------- */
+.miles { position: relative; display: grid; gap: 14px; }
+.miles::before { content: ""; position: absolute; left: 27px; top: 20px; bottom: 20px; width: 3px; background: linear-gradient(var(--p1), var(--p2), var(--p3), var(--p4)); border-radius: 3px; }
+.mile { display: grid; grid-template-columns: 58px 1fr; gap: 16px; align-items: center; }
+.mile .dotm { width: 56px; height: 56px; border-radius: 50%; background: var(--surface); border: 4px solid var(--c); display: grid; place-items: center; font: 800 14px var(--font-display); position: relative; z-index: 1; }
+.mile .body { padding: 16px 20px; display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: center; }
+.mile .body b { font-size: 17px; display: block; }
+.mile .body small { color: var(--muted); }
+.mile .score { font: 800 15px var(--font-display); color: var(--c); background: var(--bg); padding: 6px 12px; border-radius: 999px; white-space: nowrap; }
+.mile label { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--muted); cursor: pointer; margin-top: 6px; }
+.mile input { width: 20px; height: 20px; accent-color: var(--good); }
+.mile.done .dotm { background: var(--good); border-color: var(--good); color: #fff; }
+
+/* ---------- Criteria + Rules ---------- */
+.crit { padding: 20px; display: grid; gap: 6px; align-content: start; }
+.crit .ic { font-size: 28px; }
+.crit h4 { font-size: 18px; }
+.crit p { font-size: 15px; }
+.crit small { color: var(--muted); font-size: 13.5px; }
+details.acc { padding: 0; overflow: hidden; }
+details.acc + details.acc { margin-top: 10px; }
+details.acc summary { list-style: none; cursor: pointer; padding: 18px 22px; font-weight: 700; font-size: 17px; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+details.acc summary::-webkit-details-marker { display: none; }
+details.acc summary::after { content: "+"; font-size: 24px; font-weight: 400; color: var(--muted); transition: transform .2s; }
+details.acc[open] summary::after { transform: rotate(45deg); }
+details.acc .a { padding: 0 22px 20px; color: var(--muted); }
+.rules { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.rule { padding: 20px; background: var(--navy); color: #fff; border-color: var(--navy); }
+.rule b { font: 800 34px var(--font-display); color: var(--sun); display: block; line-height: 1; margin-bottom: 8px; }
+.method { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+
+/* ---------- Footer ---------- */
+.final { margin-top: 96px; background: var(--navy); color: #fff; padding: 72px 0; text-align: center; }
+.final h2 { font-size: clamp(30px, 4.6vw, 48px); font-weight: 800; }
+.final p { color: rgba(255,255,255,.75); margin: 14px auto 26px; max-width: 52ch; font-size: 18px; }
+footer { background: #0a1d34; color: rgba(255,255,255,.6); padding: 24px 0 calc(24px + env(safe-area-inset-bottom)); font-size: 14px; text-align: center; }
+
+.toast { position: fixed; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom)); transform: translate(-50%, 120px); background: var(--navy); color: #fff; padding: 12px 20px; border-radius: 999px; font-weight: 600; box-shadow: var(--shadow); transition: transform .3s; z-index: 60; }
+.toast.show { transform: translate(-50%, 0); }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1060px) {
+  .phases { grid-template-columns: repeat(2, 1fr); }
+  .grid4, .rules { grid-template-columns: repeat(2, 1fr); }
+  .angles { grid-template-columns: repeat(4, 1fr); }
+}
 @media (max-width: 900px) {
-  .layout { grid-template-columns: 1fr; gap: 0; }
-  nav.toc { display: none; }
-  .roadmap { grid-template-columns: 1fr 1fr; }
+  .burger { display: block; }
+  .menu { position: fixed; top: calc(64px + env(safe-area-inset-top)); left: 0; right: 0; background: var(--navy); flex-direction: column; padding: 12px 20px 24px; gap: 2px; transform: translateY(-120%); transition: transform .3s; box-shadow: 0 20px 40px rgba(0,0,0,.25); z-index: -1; }
+  .menu.open { transform: none; }
+  .menu a { display: block; padding: 14px 12px; font-size: 17px; border-radius: 12px; }
+  .menu a.cta { text-align: center; margin-top: 8px; }
+  .hero .container { grid-template-columns: 1fr; }
+  .hero { padding: 48px 0 110px; }
+  .dash { grid-template-columns: 1fr; }
+  .routine { grid-template-columns: 1fr; }
+  .stats .grid { grid-template-columns: repeat(2, 1fr); }
+  .stat:nth-child(2) { border-right: 0; }
+  .stat:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+  section.block { padding-top: 72px; }
 }
-@media (max-width: 520px) {
-  .roadmap { grid-template-columns: 1fr; }
-  h2 { font-size: 28px; }
+@media (max-width: 600px) {
+  body { font-size: 15.5px; }
+  .phases, .grid2, .grid4, .rules { grid-template-columns: 1fr; }
+  .angles { grid-template-columns: repeat(2, 1fr); }
+  .flash { grid-template-columns: 1fr; }
+  .hero-actions .btn { flex: 1 1 100%; }
+  .dash-side, .today-theme, .tasks, .day-plan, .week-plan, .panel-intro { padding: 20px; }
+  .mile .body { grid-template-columns: 1fr; }
+  .mile .score { justify-self: start; }
+  .prompt { padding-top: 52px; }
+  .actions .btn { flex: 1 1 100%; }
+  .stat { padding: 18px 12px; }
 }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  html { scroll-behavior: auto; }
+}
 </style>
 </head>
 <body>
 
-<header class="hero">
-  <div class="wrap">
-    <div class="kicker">Cahier des charges</div>
-    <h1>L'anglais en <span class="mark">360 jours</span></h1>
-    <p class="lead">Passer d'un niveau intermédiaire au niveau C1 avec 1 h 30 par jour : une routine fixe, 52 sujets de conversation, des exercices précis et un bilan tous les 90 jours.</p>
-
-    <div class="today" aria-live="polite">
-      <div class="today-top">
-        <div>
-          <label for="start">Ma date de départ (jour 1)</label>
-          <input type="date" id="start">
-        </div>
-        <div class="daynum" id="daynum">Jour 1<small>sur 360</small></div>
-      </div>
-      <div class="progress" aria-hidden="true"><span id="bar" style="width:0%"></span></div>
-      <div class="today-grid">
-        <div class="today-card"><b>Phase en cours</b><span id="t-phase">Phase 1 : Fondations</span></div>
-        <div class="today-card"><b>Thème de la semaine</b><span id="t-theme">Semaine 1 : Se présenter</span></div>
-        <div class="today-card"><b>Question du jour</b><span id="t-angle">Lundi : raconter (passé)</span></div>
-        <div class="today-card"><b>Prochain bilan</b><span id="t-gate">Jour 90</span></div>
-      </div>
-    </div>
+<header class="topbar">
+  <div class="container">
+    <a class="brand" href="#top"><span class="logo">360</span>English 360</a>
+    <button class="burger" id="burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+    <ul class="menu" id="menu">
+      <li><a href="#programme">Programme</a></li>
+      <li><a href="#routine">Routine</a></li>
+      <li><a href="#exercices">Exercices</a></li>
+      <li><a href="#ressources">Ressources</a></li>
+      <li><a href="#bilans">Bilans</a></li>
+      <li><a class="cta" href="#aujourdhui">Mon jour</a></li>
+    </ul>
   </div>
 </header>
 
-<div class="wrap layout">
-  <nav class="toc" aria-label="Sommaire">
-    <ol>
-      <li><a href="#objectif">1. Objectif</a></li>
-      <li><a href="#methode">2. Méthode</a></li>
-      <li><a href="#phases">3. Les 4 phases</a></li>
-      <li><a href="#routine">4. Routine</a></li>
-      <li><a href="#ressources">5. Ressources</a></li>
-      <li><a href="#suivi">6. Suivi et bilans</a></li>
-      <li><a href="#planb">7. Règles et plan B</a></li>
-      <li><a href="#exercices">Cahier d'exercices</a></li>
-      <li class="sub"><a href="#conversation">Conversation</a></li>
-      <li class="sub"><a href="#claude">Lancer Claude</a></li>
-      <li class="sub"><a href="#ecoute">Écoute</a></li>
-      <li class="sub"><a href="#lecture">Lecture</a></li>
-      <li class="sub"><a href="#grammaire">Grammaire</a></li>
-      <li class="sub"><a href="#ecrit">Écrit</a></li>
-      <li class="sub"><a href="#anki">Vocabulaire Anki</a></li>
-      <li class="sub"><a href="#bilan">Bilan du dimanche</a></li>
-    </ol>
-  </nav>
+<section class="hero" id="top">
+  <div class="container">
+    <div>
+      <span class="pill"><span class="dot"></span>Programme gratuit · 52 semaines</span>
+      <h1>Parle anglais couramment en <span class="hl">360 jours</span>.</h1>
+      <p class="lead">Une méthode concrète pour passer d'un niveau intermédiaire au niveau C1 : 1 h 30 par jour, beaucoup d'oral, un sujet de conversation chaque semaine et un bilan tous les 90 jours.</p>
+      <div class="hero-actions">
+        <a class="btn btn-sun" href="#aujourdhui">Commencer mon parcours →</a>
+        <a class="btn btn-ghost" href="#programme">Voir le programme</a>
+      </div>
+    </div>
+    <div class="hero-card" aria-label="Les 4 phases en un coup d'œil">
+      <h3>Ton parcours</h3>
+      <div class="mini-road">
+        <div><span class="n" style="background:var(--p1)">1</span><span><b>Fondations</b><small>Jours 1 à 90 · oser parler</small></span><span class="lvl">B2</span></div>
+        <div><span class="n" style="background:var(--p2)">2</span><span><b>Fluidité</b><small>Jours 91 à 180 · parler vite</small></span><span class="lvl">B2+</span></div>
+        <div><span class="n" style="background:var(--p3)">3</span><span><b>Précision</b><small>Jours 181 à 270 · parler juste</small></span><span class="lvl">C1</span></div>
+        <div><span class="n" style="background:var(--p4)">4</span><span><b>Autonomie</b><small>Jours 271 à 360 · parler de tout</small></span><span class="lvl">C1+</span></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <main>
-    <section id="objectif">
-      <div class="kicker">1</div>
-      <h2>Objectif</h2>
-      <p>Atteindre le niveau <strong>C1</strong> (anglais courant et autonome) en 360 jours, à raison d'environ <strong>1 h 30 par jour</strong>.</p>
-      <p><strong>Point de départ :</strong> niveau intermédiaire (B1 à B2 estimé). Le niveau exact se mesure au jour 0 avec un test gratuit.</p>
-      <h3>Critères de réussite au jour 360</h3>
-      <div class="table-wrap"><table>
-        <thead><tr><th>Compétence</th><th>Ce que je dois savoir faire</th><th>Comment je le vérifie</th></tr></thead>
-        <tbody>
-          <tr><td>Oral</td><td>Tenir 30 minutes de conversation sur un sujet complexe sans chercher mes mots</td><td>Enregistrement audio comparé à celui du jour 0</td></tr>
-          <tr><td>Compréhension orale</td><td>Suivre une série ou un podcast natif sans sous-titres à 90 %</td><td>Un épisode inédit regardé sans sous-titres</td></tr>
-          <tr><td>Lecture</td><td>Lire un roman ou un article de presse anglophone sans dictionnaire</td><td>Un article du Guardian ou de la BBC lu et résumé</td></tr>
-          <tr><td>Écrit</td><td>Rédiger un e-mail professionnel ou un texte argumenté de 300 mots avec moins de 3 fautes</td><td>Texte corrigé par Claude ou un professeur</td></tr>
-          <tr><td>Score global</td><td>C1 ou plus</td><td>Test EF SET final (score de 61 ou plus sur 100)</td></tr>
-        </tbody>
-      </table></div>
-    </section>
+<div class="stats">
+  <div class="container">
+    <div class="grid">
+      <div class="stat"><b>360</b><span>jours de parcours</span></div>
+      <div class="stat"><b>1 h 30</b><span>par jour</span></div>
+      <div class="stat"><b>52</b><span>sujets de conversation</span></div>
+      <div class="stat"><b>C1</b><span>niveau visé</span></div>
+    </div>
+  </div>
+</div>
 
-    <section id="methode">
-      <div class="kicker">2</div>
-      <h2>Principes de la méthode</h2>
-      <p>La régularité compte plus que l'intensité : 1 h 30 chaque jour vaut mieux que 10 heures le dimanche.</p>
-      <ol class="steps">
-        <li><strong>Tous les jours, sans exception.</strong> Les jours difficiles, le minimum est de 20 minutes. On ne casse jamais la chaîne deux jours de suite.</li>
-        <li><strong>L'oral d'abord.</strong> Au moins un tiers du temps sert à parler. On apprend à parler en parlant, pas en lisant des règles.</li>
-        <li><strong>Beaucoup d'écoute et de lecture.</strong> La compréhension vient du volume : des centaines d'heures d'anglais authentique sur l'année.</li>
-        <li><strong>Chaque erreur est notée.</strong> Toute faute corrigée va dans le carnet d'erreurs, révisé chaque semaine.</li>
-        <li><strong>Le vocabulaire en contexte.</strong> On apprend des phrases entières, pas des mots isolés, et on les révise en répétition espacée (Anki).</li>
-        <li><strong>Basculer sa vie en anglais.</strong> Téléphone, réseaux sociaux, séries et musique passent progressivement en anglais.</li>
-        <li><strong>Mesurer pour progresser.</strong> Un test tous les 90 jours dit si le plan fonctionne ou doit être ajusté.</li>
-      </ol>
-    </section>
-
-    <section id="phases">
-      <div class="kicker">3</div>
-      <h2>Les 4 phases</h2>
-      <p>L'année se découpe en 4 phases de 90 jours. Chaque phase déplace l'effort : d'abord oser parler, puis parler vite, puis parler juste, enfin parler de tout. On passe à la suivante seulement si le bilan est atteint.</p>
-      <div class="roadmap" id="roadmap">
-        <div class="phase" data-phase="1">
-          <div class="pnum">Phase 1 · jours 1 à 90</div>
-          <h4>Fondations</h4>
-          <div class="dates" data-range="1-90"></div>
-          <ul>
-            <li>Conversation de 15 à 20 minutes par jour sur la vie quotidienne</li>
-            <li>Revoir les temps : present perfect, past simple, futur, conditionnel</li>
-            <li>Anki : environ 1 800 nouvelles phrases</li>
-            <li>Séries avec sous-titres <strong>anglais</strong>, jamais français</li>
-          </ul>
-          <div class="gate"><b>Bilan jour 90</b> · EF SET 51+ (B2)</div>
+<main>
+  <!-- ========== DASHBOARD ========== -->
+  <section class="block" id="aujourdhui">
+    <div class="container">
+      <div class="head">
+        <span class="eyebrow">Mon tableau de bord</span>
+        <h2>Ce que tu fais aujourd'hui</h2>
+        <p>Indique ta date de départ : le site calcule ton jour, ta phase et le sujet de la semaine. Tes réglages et tes coches restent sur ton appareil.</p>
+      </div>
+      <div class="dash">
+        <div class="card dash-side">
+          <div class="ring" aria-hidden="true">
+            <svg viewBox="0 0 120 120" width="168" height="168">
+              <circle cx="60" cy="60" r="52" fill="none" stroke="var(--line)" stroke-width="10"/>
+              <circle id="ring" cx="60" cy="60" r="52" fill="none" stroke="var(--p1)" stroke-width="10" stroke-linecap="round" stroke-dasharray="326.7" stroke-dashoffset="326.7" style="transition: stroke-dashoffset .6s"/>
+            </svg>
+            <div class="center"><div><b id="dayBig">1</b><small id="daySub">jour sur 360</small></div></div>
+          </div>
+          <div class="chips" style="justify-content:center">
+            <span class="chip"><span class="sw" id="phaseSw" style="background:var(--p1)"></span><span id="phaseChip">Phase 1 · Fondations</span></span>
+            <span class="chip" id="weekChip">Semaine 1</span>
+          </div>
+          <div class="streak"><span class="flame">🔥</span><div><b id="streak">0 jour</b><small>de série. Coche au moins 2 tâches par jour pour la garder.</small></div></div>
+          <div class="row2">
+            <div class="field"><label for="start">Date de départ</label><input type="date" id="start"></div>
+            <div class="field"><label for="level">Mon niveau</label>
+              <select id="level"><option>B1</option><option selected>B2</option><option>C1</option></select></div>
+          </div>
         </div>
-        <div class="phase" data-phase="2">
-          <div class="pnum">Phase 2 · jours 91 à 180</div>
-          <h4>Fluidité</h4>
-          <div class="dates" data-range="91-180"></div>
+
+        <div class="dash-main">
+          <div class="card today-theme">
+            <span class="tag" id="themeTag" style="color:var(--p1)">Semaine 1 · Thème de la semaine</span>
+            <h3 id="themeTitle">Se présenter</h3>
+            <p class="q" lang="en" id="themeQ">Tell me about yourself. What does a typical day look like for you?</p>
+            <p class="angle-line">Angle du jour : <strong id="angleToday">raconter (passé)</strong>. <span id="angleHint"></span></p>
+            <div class="actions" style="margin-top:18px">
+              <button class="btn btn-primary" id="copyToday" type="button">Copier la consigne pour Claude</button>
+              <a class="btn" href="#exercices" style="border:1px solid var(--line)">Voir tous les sujets</a>
+            </div>
+          </div>
+          <div class="card tasks">
+            <div class="tasks-head"><h3>Ma checklist du jour</h3><span id="taskCount">0 / 5 · 0 min</span></div>
+            <div class="bar"><span id="taskBar" style="width:0%"></span></div>
+            <div id="taskList"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== OBJECTIF ========== -->
+  <section class="block" id="objectif">
+    <div class="container">
+      <div class="head">
+        <span class="eyebrow">L'objectif</span>
+        <h2>Au jour 360, voici ce que tu sauras faire</h2>
+        <p>Point de départ : niveau intermédiaire (B1 à B2). Le niveau exact se mesure au jour 0 avec un test gratuit.</p>
+      </div>
+      <div class="grid4" style="grid-template-columns:repeat(auto-fit,minmax(210px,1fr))">
+        <div class="card crit"><span class="ic">🗣️</span><h4>Parler</h4><p>Tenir 30 minutes de conversation sur un sujet complexe sans chercher ses mots.</p><small>Vérifié par un enregistrement comparé à celui du jour 0</small></div>
+        <div class="card crit"><span class="ic">🎧</span><h4>Comprendre</h4><p>Suivre une série ou un podcast natif sans sous-titres, à 90 %.</p><small>Vérifié avec un épisode inédit</small></div>
+        <div class="card crit"><span class="ic">📰</span><h4>Lire</h4><p>Lire un roman ou un article de presse anglophone sans dictionnaire.</p><small>Vérifié avec un article de la BBC lu et résumé</small></div>
+        <div class="card crit"><span class="ic">✍️</span><h4>Écrire</h4><p>Rédiger un texte argumenté de 300 mots avec moins de 3 fautes.</p><small>Vérifié par une correction</small></div>
+        <div class="card crit"><span class="ic">🏆</span><h4>Score C1</h4><p>61 ou plus sur 100 au test EF SET final.</p><small>Test gratuit en ligne</small></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PROGRAMME ========== -->
+  <section class="block" id="programme">
+    <div class="container">
+      <div class="head">
+        <span class="eyebrow">Le programme</span>
+        <h2>4 phases de 90 jours</h2>
+        <p>D'abord oser parler, puis parler vite, puis parler juste, enfin parler de tout. On passe à la phase suivante quand le bilan est atteint.</p>
+      </div>
+      <div class="phases">
+        <article class="card phase" data-phase="1" style="--c:var(--p1)">
+          <span class="now-badge">En cours</span>
+          <span class="num">1</span>
+          <div><h3>Fondations</h3><div class="when" data-range="1-90">Jours 1 à 90</div></div>
+          <p class="motto">Oser parler chaque jour</p>
           <ul>
-            <li>Débats et jeux de rôle de 20 à 30 minutes</li>
+            <li>Conversation de 15 à 20 min sur la vie quotidienne</li>
+            <li>Revoir les temps : present perfect, past simple, futur</li>
+            <li>Anki : environ 1 800 phrases</li>
+            <li>Séries avec sous-titres anglais, jamais français</li>
+          </ul>
+          <div class="gate"><span>Bilan jour 90</span><b>EF SET 51+ · B2</b></div>
+        </article>
+        <article class="card phase" data-phase="2" style="--c:var(--p2)">
+          <span class="now-badge">En cours</span>
+          <span class="num">2</span>
+          <div><h3>Fluidité</h3><div class="when" data-range="91-180">Jours 91 à 180</div></div>
+          <p class="motto">Parler vite et argumenter</p>
+          <ul>
+            <li>Débats et jeux de rôle de 20 à 30 min</li>
             <li>Phrasal verbs et expressions idiomatiques</li>
             <li>Un article de presse par jour</li>
             <li>Téléphone et réseaux sociaux en anglais</li>
           </ul>
-          <div class="gate"><b>Bilan jour 180</b> · EF SET 56+ (B2+)</div>
-        </div>
-        <div class="phase" data-phase="3">
-          <div class="pnum">Phase 3 · jours 181 à 270</div>
-          <h4>Précision</h4>
-          <div class="dates" data-range="181-270"></div>
+          <div class="gate"><span>Bilan jour 180</span><b>EF SET 56+ · B2+</b></div>
+        </article>
+        <article class="card phase" data-phase="3" style="--c:var(--p3)">
+          <span class="now-badge">En cours</span>
+          <span class="num">3</span>
+          <div><h3>Précision</h3><div class="when" data-range="181-270">Jours 181 à 270</div></div>
+          <p class="motto">Parler juste</p>
           <ul>
-            <li>Travail ciblé sur les 10 fautes les plus fréquentes</li>
-            <li>Un texte argumenté de 300 mots par semaine</li>
-            <li>Films et séries en VO <strong>sans</strong> sous-titres</li>
-            <li>Facultatif : un cours par semaine avec un professeur natif</li>
+            <li>Travail ciblé sur tes 10 fautes les plus fréquentes</li>
+            <li>Un texte argumenté par semaine</li>
+            <li>Films et séries en VO sans sous-titres</li>
+            <li>Facultatif : un cours par semaine avec un natif</li>
           </ul>
-          <div class="gate"><b>Bilan jour 270</b> · EF SET 61+ (C1)</div>
-        </div>
-        <div class="phase" data-phase="4">
-          <div class="pnum">Phase 4 · jours 271 à 360</div>
-          <h4>Autonomie</h4>
-          <div class="dates" data-range="271-360"></div>
+          <div class="gate"><span>Bilan jour 270</span><b>EF SET 61+ · C1</b></div>
+        </article>
+        <article class="card phase" data-phase="4" style="--c:var(--p4)">
+          <span class="now-badge">En cours</span>
+          <span class="num">4</span>
+          <div><h3>Autonomie</h3><div class="when" data-range="271-360">Jours 271 à 360</div></div>
+          <p class="motto">Parler de tout</p>
           <ul>
-            <li>Conversations de 30 minutes sur des sujets complexes</li>
+            <li>Conversations de 30 min sur des sujets complexes</li>
             <li>Lire un roman en anglais en entier</li>
-            <li>Penser en anglais : décrire sa journée à voix haute</li>
-            <li>Simulation d'examen complète un mois avant la fin</li>
+            <li>Penser en anglais, sans traduire</li>
+            <li>Simulation d'examen un mois avant la fin</li>
           </ul>
-          <div class="gate"><b>Bilan jour 360</b> · EF SET 65+ (C1)</div>
+          <div class="gate"><span>Bilan jour 360</span><b>EF SET 65+ · C1</b></div>
+        </article>
+      </div>
+
+      <div class="head" style="margin-top:72px">
+        <span class="eyebrow">La méthode</span>
+        <h2>7 principes qui font la différence</h2>
+      </div>
+      <div class="method">
+        <div class="card mini"><span class="big">📅</span><h4>Tous les jours</h4><p>20 minutes au minimum les jours difficiles. Jamais deux jours sautés de suite.</p></div>
+        <div class="card mini"><span class="big">🗣️</span><h4>L'oral d'abord</h4><p>Un tiers du temps sert à parler. On apprend à parler en parlant.</p></div>
+        <div class="card mini"><span class="big">🎧</span><h4>Beaucoup d'écoute</h4><p>La compréhension vient du volume : des centaines d'heures sur l'année.</p></div>
+        <div class="card mini"><span class="big">📒</span><h4>Un carnet d'erreurs</h4><p>Chaque faute corrigée est notée et révisée chaque semaine.</p></div>
+        <div class="card mini"><span class="big">🧠</span><h4>Des phrases, pas des mots</h4><p>Le vocabulaire s'apprend en contexte et se révise avec Anki.</p></div>
+        <div class="card mini"><span class="big">📱</span><h4>Une vie en anglais</h4><p>Téléphone, réseaux sociaux, séries et musique basculent en anglais.</p></div>
+        <div class="card mini"><span class="big">📈</span><h4>Mesurer</h4><p>Un test tous les 90 jours dit si le plan marche ou doit être ajusté.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ROUTINE ========== -->
+  <section class="block" id="routine">
+    <div class="container">
+      <div class="head">
+        <span class="eyebrow">La routine</span>
+        <h2>1 h 30 par jour, en petits blocs</h2>
+        <p>Des blocs courts, faciles à caser dans une journée chargée.</p>
+      </div>
+      <div class="routine">
+        <div class="card day-plan">
+          <h3>Ta journée type</h3>
+          <div class="slot"><span class="ico">☀️</span><div><span class="meta">Matin · 15 min</span><b>Anki</b><p>20 nouvelles cartes et les révisions du jour.</p></div></div>
+          <div class="slot"><span class="ico">🚌</span><div><span class="meta">Trajet ou pause · 25 min</span><b>Écoute</b><p>Podcast ou vidéo, avec un exercice précis.</p></div></div>
+          <div class="slot"><span class="ico">💬</span><div><span class="meta">Soir · 30 min</span><b>Conversation avec Claude</b><p>En mode vocal, sur le thème de la semaine.</p></div></div>
+          <div class="slot"><span class="ico">📒</span><div><span class="meta">Soir · 10 min</span><b>Carnet d'erreurs</b><p>Noter les corrections de la conversation.</p></div></div>
+          <div class="slot"><span class="ico">🌙</span><div><span class="meta">Avant de dormir · 10 min</span><b>Lecture</b><p>Article, roman ou BD en anglais.</p></div></div>
+        </div>
+        <div class="card week-plan">
+          <h3>Ta semaine type</h3>
+          <div class="days" id="weekDays"></div>
+          <p class="note"><strong>Jour minimum (20 min)</strong> : Anki + 10 minutes d'écoute. Une fois par semaine au maximum.</p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="routine">
-      <div class="kicker">4</div>
-      <h2>Routine quotidienne et hebdomadaire</h2>
-      <p>La journée type dure 1 h 30, découpée en blocs courts faciles à caser. Le détail de chaque activité est dans le <a href="#exercices">cahier d'exercices</a>.</p>
-      <h3>Chaque jour (90 minutes)</h3>
-      <div class="table-wrap"><table>
-        <thead><tr><th>Moment</th><th>Durée</th><th>Activité</th></tr></thead>
-        <tbody>
-          <tr><td>Matin</td><td>15 min</td><td><a href="#anki">Révision Anki</a> : 20 nouvelles cartes et les révisions du jour</td></tr>
-          <tr><td>Trajet ou pause</td><td>25 min</td><td><a href="#ecoute">Écoute</a> : podcast ou vidéo en anglais</td></tr>
-          <tr><td>Soir</td><td>30 min</td><td><a href="#conversation">Conversation orale</a> avec Claude en mode vocal, sur le thème de la semaine</td></tr>
-          <tr><td>Soir</td><td>10 min</td><td>Notation des erreurs de la conversation dans le carnet</td></tr>
-          <tr><td>Avant de dormir</td><td>10 min</td><td><a href="#lecture">Lecture</a> : article, roman ou BD en anglais</td></tr>
-        </tbody>
-      </table></div>
-      <h3>Chaque semaine</h3>
-      <div class="table-wrap"><table>
-        <thead><tr><th>Jour</th><th>Activité en plus</th><th>Durée</th></tr></thead>
-        <tbody>
-          <tr><td>Lundi</td><td>Choisir le thème de la semaine (voir les <a href="#conversation">52 sujets</a>)</td><td>10 min</td></tr>
-          <tr><td>Mercredi</td><td><a href="#grammaire">Un point de grammaire</a> ciblé à partir des erreurs du carnet</td><td>30 min</td></tr>
-          <tr><td>Vendredi</td><td><a href="#ecrit">Rédiger un texte</a> de 200 à 300 mots et le faire corriger</td><td>30 min</td></tr>
-          <tr><td>Samedi</td><td>Un film ou deux épisodes de série en VO</td><td>1 h 30</td></tr>
-          <tr><td>Dimanche</td><td><a href="#bilan">Bilan</a> : relire le carnet, s'enregistrer 2 minutes, cocher la semaine</td><td>20 min</td></tr>
-        </tbody>
-      </table></div>
-      <p class="callout"><strong>Le jour minimum (20 minutes)</strong> : Anki + 10 minutes d'écoute. Il est autorisé une fois par semaine au maximum.</p>
-    </section>
-
-    <section id="ressources">
-      <div class="kicker">5</div>
-      <h2>Ressources et outils</h2>
-      <p>Tout le plan peut se suivre gratuitement. Seul le professeur en ligne de la phase 3 est payant, et il reste facultatif.</p>
-      <div class="table-wrap"><table>
-        <thead><tr><th>Besoin</th><th>Outil</th><th>Coût</th><th>Phase</th></tr></thead>
-        <tbody>
-          <tr><td>Conversation et corrections</td><td>Application Claude, mode vocal</td><td>Inclus dans Claude</td><td>1 à 4</td></tr>
-          <tr><td>Vocabulaire</td><td><a href="https://apps.ankiweb.net">Anki</a> (cartes à répétition espacée)</td><td>Gratuit sur PC et Android</td><td>1 à 4</td></tr>
-          <tr><td>Écoute (B1-B2)</td><td><a href="https://www.bbc.co.uk/learningenglish">BBC Learning English</a>, podcast <em>6 Minute English</em></td><td>Gratuit</td><td>1 et 2</td></tr>
-          <tr><td>Écoute (B2-C1)</td><td>Podcasts natifs sur tes centres d'intérêt, YouTube en anglais</td><td>Gratuit</td><td>3 et 4</td></tr>
-          <tr><td>Lecture</td><td><a href="https://www.bbc.com/news">BBC News</a>, <a href="https://www.theguardian.com">The Guardian</a></td><td>Gratuit</td><td>2 à 4</td></tr>
-          <tr><td>Séries et films</td><td>Plateforme de streaming en VO (sous-titres anglais, puis aucun)</td><td>Selon abonnement</td><td>1 à 4</td></tr>
-          <tr><td>Professeur natif</td><td><a href="https://www.italki.com">italki</a> ou <a href="https://preply.com">Preply</a>, 1 cours par semaine</td><td>Environ 10 à 25 € le cours</td><td>3 et 4, facultatif</td></tr>
-          <tr><td>Test de niveau</td><td><a href="https://www.efset.org">EF SET</a></td><td>Gratuit</td><td>Jours 0, 90, 180, 270, 360</td></tr>
-          <tr><td>Carnet d'erreurs</td><td>Un cahier papier ou une note sur le téléphone</td><td>Gratuit</td><td>1 à 4</td></tr>
-        </tbody>
-      </table></div>
-    </section>
-
-    <section id="suivi">
-      <div class="kicker">6</div>
-      <h2>Suivi, jalons et évaluations</h2>
-      <p>Cinq bilans jalonnent l'année. Chacun comprend le même test EF SET et le même enregistrement de 2 minutes (« Present yourself and talk about your plans »), pour comparer d'un bilan à l'autre. Les dates se calculent à partir de ta date de départ et tes coches restent enregistrées dans ce navigateur.</p>
-      <ul class="checks" id="gates"></ul>
-      <p><strong>Suivi au quotidien :</strong> un calendrier où l'on coche chaque jour fait (ou une application de suivi d'habitudes). Le dimanche, on note le nombre de jours faits sur 7 et les 3 erreurs les plus fréquentes de la semaine.</p>
-    </section>
-
-    <section id="planb">
-      <div class="kicker">7</div>
-      <h2>Règles d'engagement et plan B</h2>
-      <p>Un retard se rattrape en ajustant le plan, jamais en abandonnant.</p>
-      <h3>Mes règles</h3>
-      <ol class="steps">
-        <li>Je ne saute jamais deux jours de suite.</li>
-        <li>Je parle anglais au moins 15 minutes par jour, même si c'est difficile.</li>
-        <li>Je ne traduis pas mot à mot : je cherche comment un anglophone le dirait.</li>
-        <li>Je fais mes cinq bilans aux dates prévues, même si je pense avoir peu progressé.</li>
-      </ol>
-      <h3>Plan B si ça déraille</h3>
-      <div class="table-wrap"><table>
-        <thead><tr><th>Situation</th><th>Réponse</th></tr></thead>
-        <tbody>
-          <tr><td>J'ai manqué 3 jours ou plus</td><td>Je reprends au jour minimum (20 minutes) pendant une semaine, puis je reviens à 90 minutes</td></tr>
-          <tr><td>Score sous l'objectif à un bilan</td><td>Je garde la phase en cours 30 jours de plus et je décale la suite</td></tr>
-          <tr><td>L'oral bloque (stress, hésitations)</td><td>Je double le temps de conversation et je réduis la lecture</td></tr>
-          <tr><td>Je m'ennuie</td><td>Je change de thème, de série ou de podcast : le contenu doit me plaire</td></tr>
-          <tr><td>Je manque de temps</td><td>Je déplace l'écoute sur les trajets, les tâches ménagères et le sport</td></tr>
-        </tbody>
-      </table></div>
-    </section>
-
-    <section id="exercices">
-      <div class="kicker">Cahier d'exercices</div>
-      <h2>Ce qu'on fait concrètement</h2>
-      <p>Chaque activité du plan, avec ce qu'il faut faire. Le thème de la semaine sert à la fois pour la conversation et pour l'écrit du vendredi.</p>
-
-      <h3 id="conversation">Conversation : 52 sujets, un par semaine</h3>
-      <p>On garde le même thème toute la semaine et on change d'angle chaque jour : répéter un thème fixe le vocabulaire. Les questions sont en anglais pour lancer directement la discussion. La semaine en cours est surlignée.</p>
-      <div class="tabs" role="tablist" id="phase-tabs">
-        <button role="tab" type="button" data-p="1" aria-selected="true">Phase 1 · Vie quotidienne</button>
-        <button role="tab" type="button" data-p="2" aria-selected="false">Phase 2 · Débattre</button>
-        <button role="tab" type="button" data-p="3" aria-selected="false">Phase 3 · Professionnel</button>
-        <button role="tab" type="button" data-p="4" aria-selected="false">Phase 4 · Sujets complexes</button>
+  <!-- ========== EXERCICES ========== -->
+  <section class="block" id="exercices">
+    <div class="container">
+      <div class="head">
+        <span class="eyebrow">Cahier d'exercices</span>
+        <h2>Ce que tu fais concrètement</h2>
+        <p>Chaque activité de la routine, expliquée pas à pas.</p>
       </div>
-      <div class="table-wrap"><table>
-        <thead><tr><th>Sem.</th><th>Thème</th><th>Questions pour lancer</th></tr></thead>
-        <tbody id="topics"></tbody>
-      </table></div>
+      <div class="ex-nav" role="tablist" id="exNav">
+        <button role="tab" type="button" data-panel="conv" aria-selected="true">💬 Conversation</button>
+        <button role="tab" type="button" data-panel="listen" aria-selected="false">🎧 Écoute</button>
+        <button role="tab" type="button" data-panel="read" aria-selected="false">📰 Lecture</button>
+        <button role="tab" type="button" data-panel="gram" aria-selected="false">🧩 Grammaire</button>
+        <button role="tab" type="button" data-panel="write" aria-selected="false">✍️ Écrit</button>
+        <button role="tab" type="button" data-panel="anki" aria-selected="false">🧠 Anki</button>
+        <button role="tab" type="button" data-panel="review" aria-selected="false">📊 Bilan du dimanche</button>
+      </div>
 
-      <h3 id="claude">Lancer la conversation avec Claude</h3>
-      <p>Ouvre l'application Claude, active le mode vocal et lis cette consigne en remplissant les crochets :</p>
-      <div class="prompt"><button class="copy" type="button">Copier</button><pre id="prompt-talk">You are my English conversation partner. I'm a French speaker at [B1/B2/C1] level.
-This week's topic is [thème]. Start with this question: [question du tableau].
+      <!-- Conversation -->
+      <div class="panel active" id="panel-conv" role="tabpanel">
+        <div class="card panel-intro">
+          <h3>52 sujets, un par semaine</h3>
+          <p>On garde le même thème toute la semaine et on change d'angle chaque jour : répéter un thème fixe le vocabulaire. Les questions sont en anglais pour lancer directement la discussion.</p>
+        </div>
+        <div class="phase-tabs" id="topicTabs">
+          <button type="button" data-p="1" style="--c:var(--p1)" aria-selected="true">Phase 1 · Quotidien</button>
+          <button type="button" data-p="2" style="--c:var(--p2)" aria-selected="false">Phase 2 · Débats</button>
+          <button type="button" data-p="3" style="--c:var(--p3)" aria-selected="false">Phase 3 · Pro</button>
+          <button type="button" data-p="4" style="--c:var(--p4)" aria-selected="false">Phase 4 · Complexe</button>
+        </div>
+        <div class="topics" id="topics"></div>
+
+        <div class="head" style="margin:48px 0 0"><h2 style="font-size:28px">Un angle différent chaque jour</h2></div>
+        <div class="angles" id="angles"></div>
+
+        <div class="prompt">
+          <div class="ptitle">Consigne à lire à Claude en mode vocal</div>
+          <button class="copy" type="button" data-copy="promptTalk">Copier</button>
+          <pre id="promptTalk">You are my English conversation partner. I'm a French speaker at [B1/B2/C1] level.
+This week's topic is [thème]. Start with this question: [question].
 Keep the conversation going with follow-up questions and push me to explain and give examples.
 After each of my answers, correct my main mistakes in one or two short sentences, then continue.
-At the end, give me a written list of my mistakes and five useful expressions from our talk.</pre></div>
-      <p><strong>Un angle différent chaque jour sur le même thème</strong></p>
-      <div class="table-wrap"><table>
-        <thead><tr><th>Jour</th><th>Angle</th><th>Exemple (semaine 7, Voyages)</th></tr></thead>
-        <tbody>
-          <tr><td>Lundi</td><td>Raconter (passé)</td><td>Raconte ton meilleur voyage.</td></tr>
-          <tr><td>Mardi</td><td>Décrire</td><td>Décris un lieu que tu as visité.</td></tr>
-          <tr><td>Mercredi</td><td>Donner son avis</td><td>Voyager seul ou en groupe ?</td></tr>
-          <tr><td>Jeudi</td><td>Jeu de rôle</td><td>Tu réserves un hôtel par téléphone, Claude est le réceptionniste.</td></tr>
-          <tr><td>Vendredi</td><td>Imaginer (conditionnel)</td><td>Si tu pouvais vivre dans un autre pays, lequel ?</td></tr>
-          <tr><td>Samedi</td><td>Questions libres</td><td>Claude te pose 10 questions rapides sur le thème.</td></tr>
-          <tr><td>Dimanche</td><td>Monologue</td><td>Parle 3 minutes sans interruption, puis demande une correction complète.</td></tr>
-        </tbody>
-      </table></div>
+At the end, give me a written list of my mistakes and five useful expressions from our talk.</pre>
+        </div>
+      </div>
 
-      <h3 id="ecoute">Écoute (25 minutes par jour)</h3>
-      <p>On écoute un même extrait plusieurs fois avec un but précis à chaque passage. Une seule écoute passive ne fait presque pas progresser.</p>
-      <ol class="steps">
-        <li><strong>Écoute globale.</strong> Une première écoute sans pause, puis un résumé à voix haute en 3 phrases : qui, quoi, pourquoi.</li>
-        <li><strong>Dictée.</strong> Transcrire mot à mot 1 à 2 minutes d'audio, puis comparer avec la transcription officielle. Les mots manqués vont dans Anki.</li>
-        <li><strong>Shadowing.</strong> Répéter en même temps que l'orateur, avec son rythme et son intonation, sur 1 minute. Le meilleur exercice pour l'accent.</li>
-        <li><strong>Chasse aux expressions.</strong> Noter 5 expressions nouvelles et les réutiliser dans la conversation du soir.</li>
-      </ol>
-      <div class="table-wrap"><table>
-        <thead><tr><th>Phase</th><th>Support</th><th>Exercices</th></tr></thead>
-        <tbody>
-          <tr><td>1</td><td><em>6 Minute English</em> (BBC), avec transcription</td><td>Lundi, mercredi, vendredi : dictée. Les autres jours : écoute globale et shadowing</td></tr>
-          <tr><td>2</td><td>Vidéos YouTube de 10 à 15 minutes sur le thème de la semaine</td><td>Écoute globale et chasse aux expressions chaque jour, une dictée par semaine</td></tr>
-          <tr><td>3</td><td>Podcasts natifs, journal de la BBC</td><td>Shadowing quotidien de 2 minutes, résumé oral</td></tr>
-          <tr><td>4</td><td>Conférences TED, débats, émissions de radio</td><td>Écoute sans transcription, puis résumé de 2 minutes et avis personnel</td></tr>
-        </tbody>
-      </table></div>
+      <!-- Listening -->
+      <div class="panel" id="panel-listen" role="tabpanel">
+        <div class="card panel-intro">
+          <h3>Écoute · 25 minutes par jour</h3>
+          <p>On écoute un même extrait plusieurs fois, avec un but précis à chaque passage. Une écoute passive ne fait presque pas progresser.</p>
+        </div>
+        <div class="grid4">
+          <div class="card mini"><span class="big">👂</span><h4>Écoute globale</h4><p>Une écoute sans pause, puis un résumé à voix haute en 3 phrases : qui, quoi, pourquoi.</p></div>
+          <div class="card mini"><span class="big">⌨️</span><h4>Dictée</h4><p>Transcrire 1 à 2 minutes mot à mot, puis comparer avec la transcription. Les mots manqués vont dans Anki.</p></div>
+          <div class="card mini"><span class="big">🦜</span><h4>Shadowing</h4><p>Répéter en même temps que l'orateur pendant 1 minute, avec son rythme. Le meilleur exercice pour l'accent.</p></div>
+          <div class="card mini"><span class="big">🔎</span><h4>Chasse aux expressions</h4><p>Noter 5 expressions nouvelles et les réutiliser dans la conversation du soir.</p></div>
+        </div>
+        <div class="grid4" style="margin-top:16px">
+          <div class="card mini" style="--c:var(--p1)"><span class="ph">Phase 1</span><h4>6 Minute English (BBC)</h4><p>Dictée lundi, mercredi et vendredi. Écoute globale et shadowing les autres jours.</p></div>
+          <div class="card mini" style="--c:var(--p2)"><span class="ph">Phase 2</span><h4>YouTube, 10 à 15 min</h4><p>Sur le thème de la semaine. Écoute globale et chasse aux expressions, une dictée par semaine.</p></div>
+          <div class="card mini" style="--c:var(--p3)"><span class="ph">Phase 3</span><h4>Podcasts natifs, BBC</h4><p>Shadowing quotidien de 2 minutes et résumé oral.</p></div>
+          <div class="card mini" style="--c:var(--p4)"><span class="ph">Phase 4</span><h4>TED, débats, radio</h4><p>Sans transcription. Résumé de 2 minutes et avis personnel.</p></div>
+        </div>
+      </div>
 
-      <h3 id="lecture">Lecture (10 minutes par jour)</h3>
-      <p>On lit pour le plaisir et on ne cherche que les mots qui reviennent ou qui bloquent la compréhension. Pas plus de 5 mots cherchés par séance.</p>
-      <div class="table-wrap"><table>
-        <thead><tr><th>Phase</th><th>Quoi lire</th><th>Exercice après la lecture</th></tr></thead>
-        <tbody>
-          <tr><td>1</td><td>Articles courts de BBC Learning English, BD ou mangas en anglais</td><td>Lire un paragraphe à voix haute, puis dire en une phrase de quoi parle le texte</td></tr>
-          <tr><td>2</td><td>Un article de BBC News par jour, sur le thème de la semaine si possible</td><td>Noter l'idée principale et 3 arguments, à réutiliser dans le débat du soir</td></tr>
-          <tr><td>3</td><td>Articles d'opinion du Guardian, articles sur ton métier</td><td>Repérer les mots de liaison (<em>however, therefore, whereas</em>…) et en réutiliser 2 dans l'écrit du vendredi</td></tr>
-          <tr><td>4</td><td>Un roman en entier, par exemple un roman déjà lu en français</td><td>Résumer chaque chapitre à voix haute en 1 minute</td></tr>
-        </tbody>
-      </table></div>
+      <!-- Reading -->
+      <div class="panel" id="panel-read" role="tabpanel">
+        <div class="card panel-intro">
+          <h3>Lecture · 10 minutes par jour</h3>
+          <p>On lit pour le plaisir. On ne cherche que les mots qui reviennent ou qui bloquent la compréhension : 5 au maximum par séance.</p>
+        </div>
+        <div class="grid4">
+          <div class="card mini" style="--c:var(--p1)"><span class="ph">Phase 1</span><h4>Textes courts, BD, mangas</h4><p>Lire un paragraphe à voix haute, puis dire en une phrase de quoi parle le texte.</p></div>
+          <div class="card mini" style="--c:var(--p2)"><span class="ph">Phase 2</span><h4>Un article BBC News par jour</h4><p>Noter l'idée principale et 3 arguments, à réutiliser dans le débat du soir.</p></div>
+          <div class="card mini" style="--c:var(--p3)"><span class="ph">Phase 3</span><h4>Opinions du Guardian</h4><p>Repérer les mots de liaison (<em>however, therefore, whereas</em>) et en réutiliser 2 à l'écrit.</p></div>
+          <div class="card mini" style="--c:var(--p4)"><span class="ph">Phase 4</span><h4>Un roman en entier</h4><p>Résumer chaque chapitre à voix haute en 1 minute.</p></div>
+        </div>
+      </div>
 
-      <h3 id="grammaire">Grammaire du mercredi (30 minutes)</h3>
-      <p>Chaque mercredi, on traite un point : celui qui revient le plus dans le carnet d'erreurs, ou à défaut le suivant de la liste.</p>
-      <ol class="steps">
-        <li><strong>Comprendre (5 min).</strong> Demander à Claude : <em>« Explique-moi [le point] en français, avec 5 exemples et les erreurs typiques des francophones. »</em></li>
-        <li><strong>Pratiquer (15 min).</strong> Demander : <em>« Donne-moi 15 phrases à traduire du français vers l'anglais sur ce point, de plus en plus difficiles. Corrige-moi après chaque réponse. »</em></li>
-        <li><strong>Parler (10 min).</strong> Une conversation orale où Claude pose des questions qui obligent à utiliser ce point.</li>
-      </ol>
-      <div class="table-wrap"><table>
-        <thead><tr><th>Phase</th><th>Point de grammaire</th><th>Erreur typique d'un francophone</th></tr></thead>
-        <tbody id="grammar"></tbody>
-      </table></div>
+      <!-- Grammar -->
+      <div class="panel" id="panel-gram" role="tabpanel">
+        <div class="card panel-intro">
+          <h3>Grammaire du mercredi · 30 minutes</h3>
+          <p>Chaque mercredi, un point : celui qui revient le plus dans ton carnet d'erreurs, ou à défaut le suivant de la liste.</p>
+        </div>
+        <div class="steps">
+          <div class="card step"><b>Comprendre · 5 min</b><p>Demande à Claude : « Explique-moi [le point] en français, avec 5 exemples et les erreurs typiques des francophones. »</p></div>
+          <div class="card step"><b>Pratiquer · 15 min</b><p>« Donne-moi 15 phrases à traduire du français vers l'anglais sur ce point, de plus en plus difficiles. Corrige-moi après chaque réponse. »</p></div>
+          <div class="card step"><b>Parler · 10 min</b><p>Une conversation orale où Claude te pose des questions qui t'obligent à utiliser ce point.</p></div>
+        </div>
+        <div class="grid2" id="grammar" style="margin-top:24px"></div>
+      </div>
 
-      <h3 id="ecrit">Écrit du vendredi (30 minutes)</h3>
-      <p>On écrit sur le thème de la semaine, sans dictionnaire ni traducteur, puis on fait corriger. Le format change à chaque phase.</p>
-      <div class="table-wrap"><table>
-        <thead><tr><th>Phase</th><th>Format</th><th>Longueur</th><th>Exemple de sujet</th></tr></thead>
-        <tbody>
-          <tr><td>1</td><td>Récit ou description personnelle</td><td>150 mots</td><td>Sem. 7 : <em>Describe the best trip you've ever taken.</em></td></tr>
-          <tr><td>2</td><td>Texte d'opinion (pour ou contre)</td><td>200 mots</td><td>Sem. 15 : <em>Is working from home better than working in an office?</em></td></tr>
-          <tr><td>3</td><td>E-mail ou lettre professionnelle</td><td>200 à 250 mots</td><td>Sem. 30 : <em>Write to a company to complain about a faulty product and ask for a refund.</em></td></tr>
-          <tr><td>4</td><td>Essai argumenté (introduction, deux parties, conclusion)</td><td>300 mots</td><td>Sem. 43 : <em>Should prisons punish or rehabilitate?</em></td></tr>
-        </tbody>
-      </table></div>
-      <p><strong>Faire corriger son texte.</strong> Colle ton texte dans Claude avec cette consigne :</p>
-      <div class="prompt"><button class="copy" type="button">Copier</button><pre>Correct this text written by a French speaker at [niveau] level.
+      <!-- Writing -->
+      <div class="panel" id="panel-write" role="tabpanel">
+        <div class="card panel-intro">
+          <h3>Écrit du vendredi · 30 minutes</h3>
+          <p>On écrit sur le thème de la semaine, sans dictionnaire ni traducteur, puis on fait corriger. Le format change à chaque phase.</p>
+        </div>
+        <div class="grid4">
+          <div class="card mini" style="--c:var(--p1)"><span class="ph">Phase 1 · 150 mots</span><h4>Récit personnel</h4><p lang="en"><em>Describe the best trip you've ever taken.</em></p></div>
+          <div class="card mini" style="--c:var(--p2)"><span class="ph">Phase 2 · 200 mots</span><h4>Texte d'opinion</h4><p lang="en"><em>Is working from home better than working in an office?</em></p></div>
+          <div class="card mini" style="--c:var(--p3)"><span class="ph">Phase 3 · 250 mots</span><h4>E-mail professionnel</h4><p lang="en"><em>Complain about a faulty product and ask for a refund.</em></p></div>
+          <div class="card mini" style="--c:var(--p4)"><span class="ph">Phase 4 · 300 mots</span><h4>Essai argumenté</h4><p lang="en"><em>Should prisons punish or rehabilitate?</em></p></div>
+        </div>
+        <div class="prompt">
+          <div class="ptitle">Consigne de correction à coller dans Claude</div>
+          <button class="copy" type="button" data-copy="promptWrite">Copier</button>
+          <pre id="promptWrite">Correct this text written by a French speaker at [niveau] level.
 List each mistake with the correction and a short explanation in French.
-Then rewrite the text as a native speaker would, and give it a CEFR level.</pre></div>
-      <p>Recopie ensuite à la main les 3 phrases les mieux réécrites : l'écriture manuelle aide à retenir.</p>
+Then rewrite the text as a native speaker would, and give it a CEFR level.</pre>
+        </div>
+        <p class="note">Recopie ensuite à la main les 3 phrases les mieux réécrites : l'écriture manuelle aide à retenir.</p>
+      </div>
 
-      <h3 id="anki">Vocabulaire Anki (15 minutes par jour)</h3>
-      <p>Une carte contient une phrase entière, pas un mot seul. On la crée à partir de ce qu'on a rencontré dans la journée.</p>
-      <div class="table-wrap"><table>
-        <thead><tr><th>Recto (français)</th><th>Verso (anglais)</th></tr></thead>
-        <tbody>
-          <tr><td>J'ai fini par trouver la solution.</td><td>I eventually <strong>figured out</strong> the solution.</td></tr>
-          <tr><td>Il faut que je m'y habitue.</td><td>I need to <strong>get used to</strong> it.</td></tr>
-          <tr><td>Ça dépend de toi.</td><td>It's <strong>up to</strong> you.</td></tr>
-        </tbody>
-      </table></div>
-      <ol class="steps">
-        <li>Ajouter 20 cartes par jour : les mots de la dictée, les expressions de la conversation, les corrections du carnet.</li>
-        <li>Faire toutes les révisions qu'Anki propose, chaque jour, avant les nouvelles cartes.</li>
-        <li>Lire le verso à voix haute avant de valider la carte.</li>
-        <li>Si une carte est ratée 3 fois, écrire une phrase personnelle avec cette expression.</li>
-      </ol>
+      <!-- Anki -->
+      <div class="panel" id="panel-anki" role="tabpanel">
+        <div class="card panel-intro">
+          <h3>Vocabulaire Anki · 15 minutes par jour</h3>
+          <p>Une carte = une phrase entière, pas un mot seul. Clique sur les cartes pour les retourner.</p>
+        </div>
+        <div class="flash">
+          <div class="flashcard" tabindex="0" role="button" aria-label="Retourner la carte"><div class="inner"><div class="face"><div><small>Recto</small>J'ai fini par trouver la solution.</div></div><div class="face back"><div><small>Verso</small>I eventually <strong>figured out</strong> the solution.</div></div></div></div>
+          <div class="flashcard" tabindex="0" role="button" aria-label="Retourner la carte"><div class="inner"><div class="face"><div><small>Recto</small>Il faut que je m'y habitue.</div></div><div class="face back"><div><small>Verso</small>I need to <strong>get used to</strong> it.</div></div></div></div>
+          <div class="flashcard" tabindex="0" role="button" aria-label="Retourner la carte"><div class="inner"><div class="face"><div><small>Recto</small>Ça dépend de toi.</div></div><div class="face back"><div><small>Verso</small>It's <strong>up to</strong> you.</div></div></div></div>
+          <div class="flashcard" tabindex="0" role="button" aria-label="Retourner la carte"><div class="inner"><div class="face"><div><small>Recto</small>J'ai remis ça à plus tard.</div></div><div class="face back"><div><small>Verso</small>I <strong>put it off</strong>.</div></div></div></div>
+        </div>
+        <div class="steps">
+          <div class="card step"><b>20 cartes par jour</b><p>Les mots de la dictée, les expressions de la conversation, les corrections du carnet.</p></div>
+          <div class="card step"><b>Les révisions d'abord</b><p>Fais toutes les révisions proposées par Anki avant les nouvelles cartes.</p></div>
+          <div class="card step"><b>À voix haute</b><p>Lis le verso à voix haute avant de valider la carte.</p></div>
+          <div class="card step"><b>Carte ratée 3 fois ?</b><p>Écris une phrase personnelle avec cette expression.</p></div>
+        </div>
+      </div>
 
-      <h3 id="bilan">Bilan du dimanche (20 minutes)</h3>
-      <p>Le bilan sert à voir ses progrès et à choisir quoi travailler la semaine suivante.</p>
-      <ul class="plain">
-        <li>Relire le carnet d'erreurs de la semaine et entourer les 3 fautes les plus fréquentes.</li>
-        <li>S'enregistrer 2 minutes sur le thème de la semaine, sans notes.</li>
-        <li>Réécouter l'enregistrement et noter 2 points à améliorer (prononciation, hésitations, fautes).</li>
-        <li>Une fois par mois, écouter l'enregistrement du jour 0 pour mesurer le chemin parcouru.</li>
-        <li>Choisir le point de grammaire du mercredi suivant parmi les 3 fautes entourées.</li>
-        <li>Cocher la semaine dans le calendrier et noter le nombre de jours faits sur 7.</li>
-      </ul>
-    </section>
-  </main>
-</div>
+      <!-- Review -->
+      <div class="panel" id="panel-review" role="tabpanel">
+        <div class="card panel-intro">
+          <h3>Bilan du dimanche · 20 minutes</h3>
+          <p>Voir ses progrès et choisir quoi travailler la semaine suivante.</p>
+        </div>
+        <ul class="checklist">
+          <li class="card">Relire le carnet d'erreurs de la semaine et entourer les 3 fautes les plus fréquentes.</li>
+          <li class="card">S'enregistrer 2 minutes sur le thème de la semaine, sans notes.</li>
+          <li class="card">Réécouter l'enregistrement et noter 2 points à améliorer.</li>
+          <li class="card">Une fois par mois, réécouter l'enregistrement du jour 0 pour mesurer le chemin parcouru.</li>
+          <li class="card">Choisir le point de grammaire du mercredi suivant parmi les 3 fautes entourées.</li>
+          <li class="card">Noter le nombre de jours faits sur 7.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-<footer>
-  <div class="wrap">L'anglais en 360 jours · Plan libre de partage. Ta date de départ et tes coches restent dans ton navigateur : elles ne sont envoyées nulle part.</div>
-</footer>
+  <!-- ========== RESSOURCES ========== -->
+  <section class="block" id="ressources">
+    <div class="container">
+      <div class="head">
+        <span class="eyebrow">Ressources</span>
+        <h2>Tout ce qu'il te faut, presque gratuit</h2>
+        <p>Seul le professeur natif est payant, et il reste facultatif.</p>
+      </div>
+      <div class="grid4" style="grid-template-columns:repeat(auto-fill,minmax(240px,1fr))">
+        <div class="card res"><span class="ic">🤖</span><h4>Claude, mode vocal</h4><p>Ton partenaire de conversation, qui te corrige.</p><span class="price">Inclus dans Claude</span></div>
+        <a class="card res" href="https://apps.ankiweb.net" target="_blank" rel="noopener"><span class="ic">🧠</span><h4>Anki</h4><p>Cartes de vocabulaire à répétition espacée.</p><span class="price">Gratuit sur PC et Android</span></a>
+        <a class="card res" href="https://www.bbc.co.uk/learningenglish" target="_blank" rel="noopener"><span class="ic">🎙️</span><h4>BBC Learning English</h4><p>Le podcast 6 Minute English, avec transcriptions.</p><span class="price">Gratuit</span></a>
+        <a class="card res" href="https://www.bbc.com/news" target="_blank" rel="noopener"><span class="ic">📰</span><h4>BBC News</h4><p>Un article par jour à partir de la phase 2.</p><span class="price">Gratuit</span></a>
+        <a class="card res" href="https://www.theguardian.com" target="_blank" rel="noopener"><span class="ic">🗞️</span><h4>The Guardian</h4><p>Articles d'opinion pour la phase 3.</p><span class="price">Gratuit</span></a>
+        <a class="card res" href="https://www.efset.org" target="_blank" rel="noopener"><span class="ic">🏁</span><h4>EF SET</h4><p>Le test de niveau des 5 bilans.</p><span class="price">Gratuit</span></a>
+        <a class="card res" href="https://www.italki.com" target="_blank" rel="noopener"><span class="ic">👩‍🏫</span><h4>italki ou Preply</h4><p>Un cours par semaine avec un natif, phases 3 et 4.</p><span class="price paid">Environ 10 à 25 € le cours · facultatif</span></a>
+        <div class="card res"><span class="ic">🎬</span><h4>Séries en VO</h4><p>Sous-titres anglais, puis plus de sous-titres du tout.</p><span class="price">Selon ton abonnement</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== BILANS ========== -->
+  <section class="block" id="bilans">
+    <div class="container">
+      <div class="head">
+        <span class="eyebrow">Les bilans</span>
+        <h2>5 rendez-vous pour mesurer tes progrès</h2>
+        <p>À chaque bilan : le même test EF SET et le même enregistrement de 2 minutes (« Present yourself and talk about your plans »). Les dates se calculent à partir de ta date de départ.</p>
+      </div>
+      <div class="miles" id="miles"></div>
+    </div>
+  </section>
+
+  <!-- ========== REGLES ========== -->
+  <section class="block" id="regles">
+    <div class="container">
+      <div class="head">
+        <span class="eyebrow">Tenir sur la durée</span>
+        <h2>Mes 4 règles, et le plan B</h2>
+        <p>Un retard se rattrape en ajustant le plan, jamais en abandonnant.</p>
+      </div>
+      <div class="rules">
+        <div class="card rule"><b>01</b>Je ne saute jamais deux jours de suite.</div>
+        <div class="card rule"><b>02</b>Je parle anglais au moins 15 minutes par jour.</div>
+        <div class="card rule"><b>03</b>Je ne traduis pas mot à mot : je cherche comment un natif le dirait.</div>
+        <div class="card rule"><b>04</b>Je fais mes 5 bilans aux dates prévues.</div>
+      </div>
+      <div style="margin-top:28px">
+        <details class="card acc"><summary>J'ai manqué 3 jours ou plus</summary><div class="a">Reprends au jour minimum (20 minutes) pendant une semaine, puis reviens à 90 minutes.</div></details>
+        <details class="card acc"><summary>Mon score est sous l'objectif à un bilan</summary><div class="a">Garde la phase en cours 30 jours de plus et décale la suite. Ce n'est pas un échec, c'est un ajustement.</div></details>
+        <details class="card acc"><summary>L'oral me bloque (stress, hésitations)</summary><div class="a">Double le temps de conversation et réduis la lecture. Plus tu parles, plus le stress baisse.</div></details>
+        <details class="card acc"><summary>Je m'ennuie</summary><div class="a">Change de thème, de série ou de podcast : le contenu doit te plaire, sinon tu arrêteras.</div></details>
+        <details class="card acc"><summary>Je manque de temps</summary><div class="a">Déplace l'écoute sur les trajets, les tâches ménagères et le sport.</div></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="final">
+    <div class="container">
+      <h2>Le meilleur moment pour commencer, c'est aujourd'hui.</h2>
+      <p>Choisis ta date de départ, fais ton test de niveau et lance ta première conversation ce soir.</p>
+      <a class="btn btn-sun" href="#aujourdhui">Lancer mon jour 1 →</a>
+    </div>
+  </section>
+</main>
+
+<footer>English 360 · Programme libre de partage. Tes réglages et tes coches restent sur ton appareil et ne sont envoyés nulle part.</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
 const TOPICS = [
@@ -531,108 +850,213 @@ const TOPICS = [
   ["Grand bilan", "Talk for 30 minutes about your year: what changed, what you learned, what comes next."]
 ];
 const GRAMMAR = [
-  [1, "Present perfect ou past simple", "<em>I have seen him yesterday</em> au lieu de <em>I saw him yesterday</em>"],
-  [1, "<em>For</em>, <em>since</em> et <em>ago</em>", "<em>I live here since 2020</em> au lieu de <em>I've lived here since 2020</em>"],
-  [1, "Le futur : <em>will</em>, <em>going to</em>, présent continu", "<em>I will see my doctor tomorrow</em> pour un rendez-vous déjà pris"],
-  [1, "Questions et auxiliaires", "<em>Where you live?</em> au lieu de <em>Where do you live?</em>"],
-  [1, "Indénombrables", "<em>informations, advices</em> au lieu de <em>information, advice</em>"],
-  [2, "Les conditionnels (types 1, 2 et 3)", "<em>If I would have time</em> au lieu de <em>If I had time</em>"],
-  [2, "Verbe + <em>-ing</em> ou + <em>to</em>", "<em>I'm used to work</em> au lieu de <em>I'm used to working</em>"],
-  [2, "Phrasal verbs les plus fréquents", "<em>I search my keys</em> au lieu de <em>I'm looking for my keys</em>"],
-  [2, "Comparatifs et superlatifs", "<em>more easy</em> au lieu de <em>easier</em>"],
-  [3, "La voix passive", "<em>It has been decided by the board</em> : savoir l'utiliser à l'écrit pro"],
-  [3, "Le discours indirect", "<em>He said me that</em> au lieu de <em>He told me that</em>"],
-  [3, "Les modaux de déduction", "<em>He must have forgotten</em>, <em>She can't have known</em>"],
-  [3, "Les faux-amis", "<em>actually, eventually, sensible, library</em>"],
-  [4, "Inversion et emphase", "<em>Never have I seen</em>, <em>What I need is</em>…"],
-  [4, "<em>Wish</em> et <em>if only</em>", "<em>I wish I would know</em> au lieu de <em>I wish I knew</em>"],
-  [4, "Nuancer : <em>tend to, arguably, to some extent</em>", "Des avis trop tranchés, faute de nuances"]
+  [1, "Present perfect ou past simple", "I have seen him yesterday.", "I saw him yesterday.", "Moment précis du passé = past simple."],
+  [1, "For, since et ago", "I live here since 2020.", "I've lived here since 2020.", "Une action qui dure jusqu'à maintenant = present perfect."],
+  [1, "Le futur", "I will see my doctor tomorrow.", "I'm seeing my doctor tomorrow.", "Rendez-vous déjà fixé = présent continu."],
+  [1, "Questions et auxiliaires", "Where you live?", "Where do you live?", "Une question a besoin d'un auxiliaire (do, does, did)."],
+  [1, "Indénombrables", "Can you give me some advices?", "Can you give me some advice?", "Advice, information, furniture ne prennent jamais de s."],
+  [2, "Les conditionnels", "If I would have time, I would go.", "If I had time, I would go.", "Jamais de would après if."],
+  [2, "Verbe + -ing ou + to", "I'm used to work at night.", "I'm used to working at night.", "Après be used to, on met -ing."],
+  [2, "Phrasal verbs", "I search my keys.", "I'm looking for my keys.", "Chercher quelque chose = look for."],
+  [2, "Comparatifs", "It's more easy.", "It's easier.", "Adjectif court = -er."],
+  [3, "La voix passive", "The board decided it. (trop direct à l'écrit pro)", "It has been decided by the board.", "Le passif met l'action au premier plan à l'écrit."],
+  [3, "Le discours indirect", "He said me that he was late.", "He told me that he was late.", "Say something, tell someone."],
+  [3, "Modaux de déduction", "He has certainly forgotten.", "He must have forgotten.", "Déduction sur le passé = must have + participe."],
+  [3, "Les faux-amis", "Actually, I live in Lyon. (= actuellement)", "Currently, I live in Lyon.", "Actually = en fait. Eventually = finalement."],
+  [4, "Inversion et emphase", "I have never seen such a mess.", "Never have I seen such a mess.", "L'inversion donne du poids, surtout à l'écrit."],
+  [4, "Wish et if only", "I wish I would know.", "I wish I knew.", "Regret sur le présent = wish + prétérit."],
+  [4, "Nuancer", "Social media is bad.", "Social media arguably does more harm than good.", "Tend to, arguably, to some extent : la marque du C1."]
 ];
 const PHASES = ["Fondations", "Fluidité", "Précision", "Autonomie"];
-const ANGLES = ["Dimanche : monologue de 3 minutes", "Lundi : raconter (passé)", "Mardi : décrire", "Mercredi : donner son avis", "Jeudi : jeu de rôle", "Vendredi : imaginer (conditionnel)", "Samedi : questions libres"];
-const GATES = [[0, "Test EF SET de départ, premier enregistrement, installation d'Anki."], [90, "Objectif : score EF SET de 51 ou plus (B2)."], [180, "Objectif : score de 56 ou plus (B2 solide)."], [270, "Objectif : score de 61 ou plus (C1)."], [360, "Objectif : score de 65 ou plus (C1 confirmé) et tous les critères de réussite validés."]];
+const PCOL = ["var(--p1)", "var(--p2)", "var(--p3)", "var(--p4)"];
+const ANGLES = [
+  ["Dim.", "Monologue", "Parle 3 minutes sans interruption, puis demande une correction complète."],
+  ["Lun.", "Raconter", "Raconte une expérience passée liée au thème."],
+  ["Mar.", "Décrire", "Décris une personne, un lieu ou un objet lié au thème."],
+  ["Mer.", "Donner son avis", "Défends ton opinion, Claude te contredit."],
+  ["Jeu.", "Jeu de rôle", "Claude joue un personnage lié au thème."],
+  ["Ven.", "Imaginer", "Utilise le conditionnel : et si… ?"],
+  ["Sam.", "Questions libres", "Claude te pose 10 questions rapides."]
+];
+const WEEK = [
+  ["Lun.", "Choisir le thème", "Lire les questions de la semaine · 10 min"],
+  ["Mar.", "Routine normale", "1 h 30"],
+  ["Mer.", "Grammaire", "Un point ciblé · +30 min"],
+  ["Jeu.", "Routine normale", "1 h 30"],
+  ["Ven.", "Écrit", "Un texte corrigé · +30 min"],
+  ["Sam.", "Cinéma en VO", "Un film ou deux épisodes · 1 h 30"],
+  ["Dim.", "Bilan", "Carnet, enregistrement · 20 min"]
+];
+const TASKS = [
+  ["anki", "Anki", "20 nouvelles cartes + révisions", 15],
+  ["listen", "Écoute", "Podcast ou vidéo avec un exercice", 25],
+  ["talk", "Conversation avec Claude", "Sur le thème de la semaine", 30],
+  ["notes", "Carnet d'erreurs", "Noter les corrections du jour", 10],
+  ["read", "Lecture", "Article, roman ou BD", 10]
+];
+const GATES = [
+  [0, "Point de départ", "Test EF SET, premier enregistrement, installation d'Anki.", "Départ"],
+  [90, "Fin des Fondations", "Test EF SET et enregistrement.", "51+ · B2"],
+  [180, "Fin de la Fluidité", "Test EF SET et enregistrement.", "56+ · B2+"],
+  [270, "Fin de la Précision", "Test EF SET et enregistrement.", "61+ · C1"],
+  [360, "Ligne d'arrivée", "Test final et validation des 5 critères de réussite.", "65+ · C1"]
+];
 
 const $ = id => document.getElementById(id);
 const store = {
-  get(k, d) { try { const v = localStorage.getItem("ang360-" + k); return v === null ? d : JSON.parse(v); } catch (e) { return d; } },
-  set(k, v) { try { localStorage.setItem("ang360-" + k, JSON.stringify(v)); } catch (e) {} }
+  get(k, d) { try { const v = localStorage.getItem("e360-" + k); return v === null ? d : JSON.parse(v); } catch (e) { return d; } },
+  set(k, v) { try { localStorage.setItem("e360-" + k, JSON.stringify(v)); } catch (e) {} }
 };
 const iso = d => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
 const parse = s => { const [y, m, d] = s.split("-").map(Number); return new Date(y, m - 1, d); };
 const addDays = (d, n) => { const r = new Date(d); r.setDate(r.getDate() + n); return r; };
 const fmt = d => d.toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" });
 const fmtShort = d => d.toLocaleDateString("fr-FR", { day: "numeric", month: "short" });
+const todayDate = () => { const t = new Date(); t.setHours(0, 0, 0, 0); return t; };
 
-let start = parse(store.get("start", iso(new Date())));
+let start = parse(store.get("start", iso(todayDate())));
 let shownPhase = null;
 
-function currentDay() {
-  const today = new Date(); today.setHours(0, 0, 0, 0);
-  return Math.round((today - start) / 864e5) + 1;
+const dayNum = () => Math.round((todayDate() - start) / 864e5) + 1;
+const clampDay = () => Math.min(360, Math.max(1, dayNum()));
+const phaseOf = d => Math.min(4, Math.ceil(d / 90));
+const weekOf = d => Math.min(52, Math.ceil(d / 7));
+
+function toast(msg) { const t = $("toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(toast.h); toast.h = setTimeout(() => t.classList.remove("show"), 2200); }
+async function copy(text) {
+  try { await navigator.clipboard.writeText(text); toast("Copié ! Colle-le dans Claude."); }
+  catch (e) { toast("Copie impossible : sélectionne le texte à la main."); }
+}
+
+function renderDashboard() {
+  const d = dayNum(), cd = clampDay(), p = phaseOf(cd), w = weekOf(cd);
+  $("start").value = iso(start);
+  if (d < 1) { $("dayBig").textContent = "J-" + (1 - d); $("daySub").textContent = "avant le départ"; }
+  else if (d > 360) { $("dayBig").textContent = "360"; $("daySub").textContent = "parcours terminé 🎉"; }
+  else { $("dayBig").textContent = d; $("daySub").textContent = "jour sur 360"; }
+  const pct = Math.max(0, Math.min(360, d)) / 360;
+  $("ring").style.strokeDashoffset = 326.7 * (1 - pct);
+  $("ring").setAttribute("stroke", PCOL[p - 1]);
+  $("phaseSw").style.background = PCOL[p - 1];
+  $("phaseChip").textContent = `Phase ${p} · ${PHASES[p - 1]}`;
+  $("weekChip").textContent = `Semaine ${w}`;
+  const [theme, q] = TOPICS[w - 1];
+  $("themeTag").textContent = `Semaine ${w} · Thème de la semaine`;
+  $("themeTag").style.color = PCOL[p - 1];
+  $("themeTitle").textContent = theme;
+  $("themeQ").textContent = q;
+  const a = ANGLES[new Date().getDay()];
+  $("angleToday").textContent = a[1].toLowerCase();
+  $("angleHint").textContent = a[2];
+  renderTasks();
+  renderStreak();
+}
+
+function todayKey() { return "day-" + iso(todayDate()); }
+function renderTasks() {
+  const done = store.get(todayKey(), {});
+  $("taskList").innerHTML = TASKS.map(([id, t, s, m]) =>
+    `<label class="task"><input type="checkbox" data-task="${id}" ${done[id] ? "checked" : ""}><span class="t"><b>${t}</b><small>${s}</small></span><span class="dur">${m} min</span></label>`).join("");
+  const n = TASKS.filter(t => done[t[0]]).length;
+  const mins = TASKS.filter(t => done[t[0]]).reduce((s, t) => s + t[3], 0);
+  $("taskCount").textContent = `${n} / ${TASKS.length} · ${mins} min`;
+  $("taskBar").style.width = (n / TASKS.length * 100) + "%";
+  $("taskList").querySelectorAll("input").forEach(i => i.onchange = () => {
+    const cur = store.get(todayKey(), {});
+    cur[i.dataset.task] = i.checked;
+    store.set(todayKey(), cur);
+    renderTasks(); renderStreak();
+    if (TASKS.every(t => store.get(todayKey(), {})[t[0]])) toast("Journée complète, bravo ! 🎉");
+  });
+}
+function renderStreak() {
+  const ok = d => Object.values(store.get("day-" + iso(d), {})).filter(Boolean).length >= 2;
+  let d = todayDate(), n = 0;
+  if (!ok(d)) d = addDays(d, -1);
+  while (ok(d) && n < 400) { n++; d = addDays(d, -1); }
+  $("streak").textContent = n + (n > 1 ? " jours" : " jour");
+}
+
+function renderPhases() {
+  const d = dayNum(), p = phaseOf(clampDay());
+  document.querySelectorAll(".phase").forEach(el => {
+    el.classList.toggle("now", +el.dataset.phase === p && d >= 1 && d <= 360);
+    const w = el.querySelector(".when");
+    const [a, b] = w.dataset.range.split("-").map(Number);
+    w.textContent = `Jours ${a} à ${b} · ${fmtShort(addDays(start, a - 1))} → ${fmtShort(addDays(start, b - 1))}`;
+  });
 }
 
 function renderTopics(p) {
   shownPhase = p;
-  document.querySelectorAll("#phase-tabs button").forEach(b => b.setAttribute("aria-selected", String(+b.dataset.p === p)));
-  const week = Math.min(52, Math.max(1, Math.ceil(currentDay() / 7)));
-  const rows = [];
+  document.querySelectorAll("#topicTabs button").forEach(b => b.setAttribute("aria-selected", String(+b.dataset.p === p)));
+  const w = dayNum() >= 1 ? weekOf(clampDay()) : 0;
+  let html = "";
   for (let i = (p - 1) * 13; i < p * 13; i++) {
     const [t, q] = TOPICS[i];
-    rows.push(`<tr class="${i + 1 === week && currentDay() >= 1 ? "current" : ""}"><td class="num">${i + 1}</td><td>${t}</td><td lang="en">${q}</td></tr>`);
+    html += `<article class="card topic${i + 1 === w ? " current" : ""}" style="--c:${PCOL[p - 1]}"><div class="wk"><span>Semaine ${i + 1}</span></div><h4>${t}</h4><p lang="en">${q}</p></article>`;
   }
-  $("topics").innerHTML = rows.join("");
+  $("topics").innerHTML = html;
 }
 
-function render() {
-  $("start").value = iso(start);
-  const day = currentDay();
-  const clamped = Math.min(360, Math.max(1, day));
-  const phase = Math.min(4, Math.ceil(clamped / 90));
-  const week = Math.min(52, Math.ceil(clamped / 7));
-  if (day < 1) {
-    $("daynum").innerHTML = `J-${1 - day}<small>avant le départ</small>`;
-  } else if (day > 360) {
-    $("daynum").innerHTML = `Terminé<small>360 jours accomplis</small>`;
-  } else {
-    $("daynum").innerHTML = `Jour ${day}<small>sur 360</small>`;
-  }
-  $("bar").style.width = (Math.max(0, Math.min(360, day)) / 360 * 100) + "%";
-  $("t-phase").textContent = `Phase ${phase} : ${PHASES[phase - 1]}`;
-  $("t-theme").textContent = `Semaine ${week} : ${TOPICS[week - 1][0]}`;
-  $("t-angle").textContent = ANGLES[new Date().getDay()];
-  const next = GATES.find(g => g[0] >= Math.max(day, 0)) || GATES[GATES.length - 1];
-  $("t-gate").textContent = `Jour ${next[0]}, le ${fmt(addDays(start, next[0] - 1))}`;
+function renderWeek() {
+  const dow = new Date().getDay();
+  const order = [1, 2, 3, 4, 5, 6, 0];
+  $("weekDays").innerHTML = WEEK.map(([d, t, s], i) => `<div class="dayc${order[i] === dow ? " today-d" : ""}"><span class="d">${d}</span><div><b>${t}</b><small>${s}</small></div></div>`).join("");
+  $("angles").innerHTML = order.map(k => { const [d, t, s] = ANGLES[k]; return `<div class="card angle${k === dow ? " today-d" : ""}"><b>${d}</b><span>${t}</span></div>`; }).join("");
+}
 
-  document.querySelectorAll(".phase").forEach(el => {
-    el.classList.toggle("now", +el.dataset.phase === phase && day >= 1 && day <= 360);
-    const [a, b] = el.querySelector(".dates").dataset.range.split("-").map(Number);
-    el.querySelector(".dates").textContent = `Du ${fmtShort(addDays(start, a - 1))} au ${fmtShort(addDays(start, b - 1))}`;
-  });
+function renderGrammar() {
+  $("grammar").innerHTML = GRAMMAR.map(([p, title, bad, good, tip]) =>
+    `<div class="card gram" style="--c:${PCOL[p - 1]}"><span class="ph">Phase ${p}</span><h4>${title}</h4><div class="wrong" lang="en">${bad}</div><div class="right" lang="en">${good}</div><p class="tip">${tip}</p></div>`).join("");
+}
 
+function renderMiles() {
   const done = store.get("gates", {});
-  $("gates").innerHTML = GATES.map(([n, text]) => `<li><label><input type="checkbox" id="gate-${n}" ${done[n] ? "checked" : ""}>
-    <span><strong>Jour ${n}</strong> <span class="date">(${fmt(addDays(start, n - 1))})</span> : ${text}</span></label></li>`).join("");
-  GATES.forEach(([n]) => $("gate-" + n).onchange = e => { const d = store.get("gates", {}); d[n] = e.target.checked; store.set("gates", d); });
-
-  renderTopics(shownPhase || phase);
+  const col = ["var(--p1)", "var(--p1)", "var(--p2)", "var(--p3)", "var(--p4)"];
+  $("miles").innerHTML = GATES.map(([n, t, s, score], i) =>
+    `<div class="mile${done[n] ? " done" : ""}" style="--c:${col[i]}"><span class="dotm">J${n}</span>
+      <div class="card body"><div><b>${t}</b><small>Jour ${n} · ${fmt(addDays(start, n - 1))}. ${s}</small>
+        <label><input type="checkbox" data-gate="${n}" ${done[n] ? "checked" : ""}> Bilan fait</label></div>
+        <span class="score">${score}</span></div></div>`).join("");
+  $("miles").querySelectorAll("input").forEach(i => i.onchange = () => {
+    const g = store.get("gates", {}); g[i.dataset.gate] = i.checked; store.set("gates", g); renderMiles();
+  });
 }
 
-$("start").addEventListener("change", e => {
-  if (!e.target.value) return;
-  start = parse(e.target.value);
-  store.set("start", e.target.value);
-  shownPhase = null;
-  render();
+function renderAll() { renderDashboard(); renderPhases(); renderTopics(shownPhase || phaseOf(clampDay())); renderWeek(); renderMiles(); }
+
+// Events
+$("start").addEventListener("change", e => { if (!e.target.value) return; start = parse(e.target.value); store.set("start", e.target.value); shownPhase = null; renderAll(); toast("Date de départ enregistrée"); });
+$("level").value = store.get("level", "B2");
+$("level").addEventListener("change", e => store.set("level", e.target.value));
+$("copyToday").addEventListener("click", () => {
+  const w = weekOf(clampDay()), [theme, q] = TOPICS[w - 1], a = ANGLES[new Date().getDay()];
+  copy(`You are my English conversation partner. I'm a French speaker at ${$("level").value} level.
+This week's topic is "${theme}". Today's angle: ${a[1]} (${a[2]}).
+Start with this question: ${q}
+Keep the conversation going with follow-up questions and push me to explain and give examples.
+After each of my answers, correct my main mistakes in one or two short sentences, then continue.
+At the end, give me a written list of my mistakes and five useful expressions from our talk.`);
 });
-document.querySelectorAll("#phase-tabs button").forEach(b => b.onclick = () => renderTopics(+b.dataset.p));
-$("grammar").innerHTML = GRAMMAR.map(([p, point, err]) => `<tr><td class="num">${p}</td><td>${point}</td><td>${err}</td></tr>`).join("");
-document.querySelectorAll(".copy").forEach(btn => btn.onclick = async () => {
-  const text = btn.nextElementSibling.textContent;
-  try { await navigator.clipboard.writeText(text); btn.textContent = "Copié"; }
-  catch (e) { btn.textContent = "Sélectionne le texte"; }
-  setTimeout(() => btn.textContent = "Copier", 2000);
+document.querySelectorAll("[data-copy]").forEach(b => b.addEventListener("click", () => copy($(b.dataset.copy).textContent)));
+document.querySelectorAll("#topicTabs button").forEach(b => b.addEventListener("click", () => renderTopics(+b.dataset.p)));
+document.querySelectorAll("#exNav button").forEach(b => b.addEventListener("click", () => {
+  document.querySelectorAll("#exNav button").forEach(x => x.setAttribute("aria-selected", String(x === b)));
+  document.querySelectorAll(".panel").forEach(p => p.classList.toggle("active", p.id === "panel-" + b.dataset.panel));
+  b.scrollIntoView({ block: "nearest", inline: "center", behavior: "smooth" });
+}));
+document.querySelectorAll(".flashcard").forEach(c => {
+  const flip = () => c.classList.toggle("flipped");
+  c.addEventListener("click", flip);
+  c.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); flip(); } });
 });
-render();
+const burger = $("burger"), menu = $("menu");
+burger.addEventListener("click", () => { const o = menu.classList.toggle("open"); burger.setAttribute("aria-expanded", String(o)); });
+menu.querySelectorAll("a").forEach(a => a.addEventListener("click", () => { menu.classList.remove("open"); burger.setAttribute("aria-expanded", "false"); }));
+
+renderGrammar();
+renderAll();
 </script>
 </body>
 </html>
