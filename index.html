@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>L'anglais en 360 jours</title>
+<meta name="description" content="Un plan complet pour passer d'un niveau intermédiaire au niveau C1 en anglais en 360 jours : routine quotidienne, 52 sujets de conversation, exercices et bilans.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+/* Layout: a single long page with a sticky table of contents on wide screens; a "today" panel up top tells the reader what to do now. */
+:root {
+  --ink: #17233a;
+  --paper: #f6f4ef;
+  --surface: #ffffff;
+  --muted: #5b6577;
+  --line: #e0ddd5;
+  --accent: #1d4f8c;
+  --accent-soft: #e5edf7;
+  --marker: #f2b33d;
+  --marker-soft: #fdf1d8;
+  --good: #23784f;
+  --font-display: "DM Serif Display", Georgia, "Times New Roman", serif;
+  --font-body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #e7eaf0; --paper: #11161f; --surface: #19202c; --muted: #9aa4b5; --line: #2b3444;
+    --accent: #8db4ea; --accent-soft: #1f2d44; --marker: #f2b33d; --marker-soft: #3a2f17; --good: #6fcf9b;
+    color-scheme: dark;
+  }
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 17px/1.6 var(--font-body); }
+a { color: var(--accent); }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 400; line-height: 1.15; text-wrap: balance; }
+h2 { font-size: 34px; margin: 0 0 12px; }
+h3 { font-size: 23px; margin: 28px 0 10px; }
+p { max-width: 68ch; }
+button, input { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.mark { background: linear-gradient(transparent 58%, var(--marker) 58%); padding: 0 2px; }
+
+.wrap { max-width: 1160px; margin: 0 auto; padding: 0 20px; }
+header.hero { padding: 56px 0 32px; }
+.hero h1 { font-size: clamp(40px, 7vw, 68px); margin: 0 0 14px; }
+.hero .lead { font-size: 20px; color: var(--muted); max-width: 60ch; margin: 0; }
+
+.today { margin-top: 28px; background: var(--surface); border: 1px solid var(--line); border-left: 6px solid var(--marker); border-radius: 10px; padding: 20px 22px; display: grid; gap: 14px; }
+.today-top { display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: end; justify-content: space-between; }
+.today label { display: block; font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+.today input[type=date] { border: 1px solid var(--line); background: var(--paper); border-radius: 6px; padding: 6px 10px; }
+.daynum { font: 44px/1 var(--font-display); font-variant-numeric: tabular-nums; }
+.daynum small { font: 16px var(--font-body); color: var(--muted); margin-left: 6px; }
+.today-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 12px; }
+.today-card { background: var(--paper); border-radius: 8px; padding: 12px 14px; }
+.today-card b { display: block; font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; font-weight: 600; }
+.progress { height: 8px; background: var(--line); border-radius: 999px; overflow: hidden; }
+.progress span { display: block; height: 100%; background: var(--accent); }
+
+.layout { display: grid; grid-template-columns: 220px 1fr; gap: 48px; padding: 24px 0 80px; }
+nav.toc { position: sticky; top: 20px; align-self: start; font-size: 15px; }
+nav.toc ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+nav.toc a { text-decoration: none; color: var(--muted); display: block; padding: 3px 0 3px 10px; border-left: 2px solid var(--line); }
+nav.toc a:hover { color: var(--ink); border-color: var(--accent); }
+nav.toc .sub a { padding-left: 22px; font-size: 14px; }
+main section { padding: 28px 0; border-top: 1px solid var(--line); scroll-margin-top: 12px; }
+main section:first-child { border-top: none; padding-top: 0; }
+.kicker { font-size: 13px; text-transform: uppercase; letter-spacing: .08em; color: var(--accent); font-weight: 700; margin-bottom: 4px; }
+
+.table-wrap { overflow-x: auto; margin: 14px 0; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; font-size: 15.5px; }
+th, td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { background: var(--accent-soft); font-weight: 600; white-space: nowrap; }
+tr:last-child td { border-bottom: none; }
+td.num { font-variant-numeric: tabular-nums; width: 52px; color: var(--muted); }
+tr.current td { background: var(--marker-soft); }
+tr.current td.num { color: var(--ink); font-weight: 700; }
+
+ol.steps, ul.plain { padding-left: 22px; max-width: 72ch; }
+ol.steps li, ul.plain li { margin: 6px 0; }
+
+.roadmap { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin: 18px 0 6px; }
+.phase { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px; display: grid; gap: 6px; align-content: start; }
+.phase.now { border: 2px solid var(--accent); }
+.phase .pnum { font-size: 13px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: .05em; }
+.phase h4 { font: 22px var(--font-display); margin: 0; }
+.phase .dates { font-size: 14px; color: var(--muted); }
+.phase ul { margin: 6px 0 0; padding-left: 18px; font-size: 15px; }
+.gate { margin-top: 8px; font-size: 14px; padding-top: 8px; border-top: 1px dashed var(--line); }
+.gate b { color: var(--accent); }
+
+.prompt { position: relative; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px; margin: 12px 0; max-width: 78ch; }
+.prompt pre { margin: 0; white-space: pre-wrap; font: 14.5px/1.55 ui-monospace, "Cascadia Code", Consolas, monospace; }
+.copy { position: absolute; top: 8px; right: 8px; border: 1px solid var(--line); background: var(--paper); border-radius: 6px; padding: 3px 10px; font-size: 13px; cursor: pointer; }
+.copy:hover { border-color: var(--accent); }
+
+.tabs { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0 4px; }
+.tabs button { border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 5px 14px; cursor: pointer; font-size: 15px; }
+.tabs button[aria-selected=true] { background: var(--accent); border-color: var(--accent); color: var(--surface); font-weight: 600; }
+
+.checks { list-style: none; padding: 0; display: grid; gap: 8px; max-width: 72ch; }
+.checks label { display: flex; gap: 10px; align-items: flex-start; cursor: pointer; }
+.checks input { margin-top: 5px; width: 18px; height: 18px; accent-color: var(--good); }
+.checks .date { font-variant-numeric: tabular-nums; color: var(--muted); }
+
+.callout { background: var(--accent-soft); border-radius: 8px; padding: 12px 16px; max-width: 72ch; }
+footer { border-top: 1px solid var(--line); padding: 24px 0 40px; color: var(--muted); font-size: 14px; }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; gap: 0; }
+  nav.toc { display: none; }
+  .roadmap { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 520px) {
+  .roadmap { grid-template-columns: 1fr; }
+  h2 { font-size: 28px; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="kicker">Cahier des charges</div>
+    <h1>L'anglais en <span class="mark">360 jours</span></h1>
+    <p class="lead">Passer d'un niveau intermédiaire au niveau C1 avec 1 h 30 par jour : une routine fixe, 52 sujets de conversation, des exercices précis et un bilan tous les 90 jours.</p>
+
+    <div class="today" aria-live="polite">
+      <div class="today-top">
+        <div>
+          <label for="start">Ma date de départ (jour 1)</label>
+          <input type="date" id="start">
+        </div>
+        <div class="daynum" id="daynum">Jour 1<small>sur 360</small></div>
+      </div>
+      <div class="progress" aria-hidden="true"><span id="bar" style="width:0%"></span></div>
+      <div class="today-grid">
+        <div class="today-card"><b>Phase en cours</b><span id="t-phase">Phase 1 : Fondations</span></div>
+        <div class="today-card"><b>Thème de la semaine</b><span id="t-theme">Semaine 1 : Se présenter</span></div>
+        <div class="today-card"><b>Question du jour</b><span id="t-angle">Lundi : raconter (passé)</span></div>
+        <div class="today-card"><b>Prochain bilan</b><span id="t-gate">Jour 90</span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap layout">
+  <nav class="toc" aria-label="Sommaire">
+    <ol>
+      <li><a href="#objectif">1. Objectif</a></li>
+      <li><a href="#methode">2. Méthode</a></li>
+      <li><a href="#phases">3. Les 4 phases</a></li>
+      <li><a href="#routine">4. Routine</a></li>
+      <li><a href="#ressources">5. Ressources</a></li>
+      <li><a href="#suivi">6. Suivi et bilans</a></li>
+      <li><a href="#planb">7. Règles et plan B</a></li>
+      <li><a href="#exercices">Cahier d'exercices</a></li>
+      <li class="sub"><a href="#conversation">Conversation</a></li>
+      <li class="sub"><a href="#claude">Lancer Claude</a></li>
+      <li class="sub"><a href="#ecoute">Écoute</a></li>
+      <li class="sub"><a href="#lecture">Lecture</a></li>
+      <li class="sub"><a href="#grammaire">Grammaire</a></li>
+      <li class="sub"><a href="#ecrit">Écrit</a></li>
+      <li class="sub"><a href="#anki">Vocabulaire Anki</a></li>
+      <li class="sub"><a href="#bilan">Bilan du dimanche</a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <section id="objectif">
+      <div class="kicker">1</div>
+      <h2>Objectif</h2>
+      <p>Atteindre le niveau <strong>C1</strong> (anglais courant et autonome) en 360 jours, à raison d'environ <strong>1 h 30 par jour</strong>.</p>
+      <p><strong>Point de départ :</strong> niveau intermédiaire (B1 à B2 estimé). Le niveau exact se mesure au jour 0 avec un test gratuit.</p>
+      <h3>Critères de réussite au jour 360</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Compétence</th><th>Ce que je dois savoir faire</th><th>Comment je le vérifie</th></tr></thead>
+        <tbody>
+          <tr><td>Oral</td><td>Tenir 30 minutes de conversation sur un sujet complexe sans chercher mes mots</td><td>Enregistrement audio comparé à celui du jour 0</td></tr>
+          <tr><td>Compréhension orale</td><td>Suivre une série ou un podcast natif sans sous-titres à 90 %</td><td>Un épisode inédit regardé sans sous-titres</td></tr>
+          <tr><td>Lecture</td><td>Lire un roman ou un article de presse anglophone sans dictionnaire</td><td>Un article du Guardian ou de la BBC lu et résumé</td></tr>
+          <tr><td>Écrit</td><td>Rédiger un e-mail professionnel ou un texte argumenté de 300 mots avec moins de 3 fautes</td><td>Texte corrigé par Claude ou un professeur</td></tr>
+          <tr><td>Score global</td><td>C1 ou plus</td><td>Test EF SET final (score de 61 ou plus sur 100)</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <section id="methode">
+      <div class="kicker">2</div>
+      <h2>Principes de la méthode</h2>
+      <p>La régularité compte plus que l'intensité : 1 h 30 chaque jour vaut mieux que 10 heures le dimanche.</p>
+      <ol class="steps">
+        <li><strong>Tous les jours, sans exception.</strong> Les jours difficiles, le minimum est de 20 minutes. On ne casse jamais la chaîne deux jours de suite.</li>
+        <li><strong>L'oral d'abord.</strong> Au moins un tiers du temps sert à parler. On apprend à parler en parlant, pas en lisant des règles.</li>
+        <li><strong>Beaucoup d'écoute et de lecture.</strong> La compréhension vient du volume : des centaines d'heures d'anglais authentique sur l'année.</li>
+        <li><strong>Chaque erreur est notée.</strong> Toute faute corrigée va dans le carnet d'erreurs, révisé chaque semaine.</li>
+        <li><strong>Le vocabulaire en contexte.</strong> On apprend des phrases entières, pas des mots isolés, et on les révise en répétition espacée (Anki).</li>
+        <li><strong>Basculer sa vie en anglais.</strong> Téléphone, réseaux sociaux, séries et musique passent progressivement en anglais.</li>
+        <li><strong>Mesurer pour progresser.</strong> Un test tous les 90 jours dit si le plan fonctionne ou doit être ajusté.</li>
+      </ol>
+    </section>
+
+    <section id="phases">
+      <div class="kicker">3</div>
+      <h2>Les 4 phases</h2>
+      <p>L'année se découpe en 4 phases de 90 jours. Chaque phase déplace l'effort : d'abord oser parler, puis parler vite, puis parler juste, enfin parler de tout. On passe à la suivante seulement si le bilan est atteint.</p>
+      <div class="roadmap" id="roadmap">
+        <div class="phase" data-phase="1">
+          <div class="pnum">Phase 1 · jours 1 à 90</div>
+          <h4>Fondations</h4>
+          <div class="dates" data-range="1-90"></div>
+          <ul>
+            <li>Conversation de 15 à 20 minutes par jour sur la vie quotidienne</li>
+            <li>Revoir les temps : present perfect, past simple, futur, conditionnel</li>
+            <li>Anki : environ 1 800 nouvelles phrases</li>
+            <li>Séries avec sous-titres <strong>anglais</strong>, jamais français</li>
+          </ul>
+          <div class="gate"><b>Bilan jour 90</b> · EF SET 51+ (B2)</div>
+        </div>
+        <div class="phase" data-phase="2">
+          <div class="pnum">Phase 2 · jours 91 à 180</div>
+          <h4>Fluidité</h4>
+          <div class="dates" data-range="91-180"></div>
+          <ul>
+            <li>Débats et jeux de rôle de 20 à 30 minutes</li>
+            <li>Phrasal verbs et expressions idiomatiques</li>
+            <li>Un article de presse par jour</li>
+            <li>Téléphone et réseaux sociaux en anglais</li>
+          </ul>
+          <div class="gate"><b>Bilan jour 180</b> · EF SET 56+ (B2+)</div>
+        </div>
+        <div class="phase" data-phase="3">
+          <div class="pnum">Phase 3 · jours 181 à 270</div>
+          <h4>Précision</h4>
+          <div class="dates" data-range="181-270"></div>
+          <ul>
+            <li>Travail ciblé sur les 10 fautes les plus fréquentes</li>
+            <li>Un texte argumenté de 300 mots par semaine</li>
+            <li>Films et séries en VO <strong>sans</strong> sous-titres</li>
+            <li>Facultatif : un cours par semaine avec un professeur natif</li>
+          </ul>
+          <div class="gate"><b>Bilan jour 270</b> · EF SET 61+ (C1)</div>
+        </div>
+        <div class="phase" data-phase="4">
+          <div class="pnum">Phase 4 · jours 271 à 360</div>
+          <h4>Autonomie</h4>
+          <div class="dates" data-range="271-360"></div>
+          <ul>
+            <li>Conversations de 30 minutes sur des sujets complexes</li>
+            <li>Lire un roman en anglais en entier</li>
+            <li>Penser en anglais : décrire sa journée à voix haute</li>
+            <li>Simulation d'examen complète un mois avant la fin</li>
+          </ul>
+          <div class="gate"><b>Bilan jour 360</b> · EF SET 65+ (C1)</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="routine">
+      <div class="kicker">4</div>
+      <h2>Routine quotidienne et hebdomadaire</h2>
+      <p>La journée type dure 1 h 30, découpée en blocs courts faciles à caser. Le détail de chaque activité est dans le <a href="#exercices">cahier d'exercices</a>.</p>
+      <h3>Chaque jour (90 minutes)</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Moment</th><th>Durée</th><th>Activité</th></tr></thead>
+        <tbody>
+          <tr><td>Matin</td><td>15 min</td><td><a href="#anki">Révision Anki</a> : 20 nouvelles cartes et les révisions du jour</td></tr>
+          <tr><td>Trajet ou pause</td><td>25 min</td><td><a href="#ecoute">Écoute</a> : podcast ou vidéo en anglais</td></tr>
+          <tr><td>Soir</td><td>30 min</td><td><a href="#conversation">Conversation orale</a> avec Claude en mode vocal, sur le thème de la semaine</td></tr>
+          <tr><td>Soir</td><td>10 min</td><td>Notation des erreurs de la conversation dans le carnet</td></tr>
+          <tr><td>Avant de dormir</td><td>10 min</td><td><a href="#lecture">Lecture</a> : article, roman ou BD en anglais</td></tr>
+        </tbody>
+      </table></div>
+      <h3>Chaque semaine</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Jour</th><th>Activité en plus</th><th>Durée</th></tr></thead>
+        <tbody>
+          <tr><td>Lundi</td><td>Choisir le thème de la semaine (voir les <a href="#conversation">52 sujets</a>)</td><td>10 min</td></tr>
+          <tr><td>Mercredi</td><td><a href="#grammaire">Un point de grammaire</a> ciblé à partir des erreurs du carnet</td><td>30 min</td></tr>
+          <tr><td>Vendredi</td><td><a href="#ecrit">Rédiger un texte</a> de 200 à 300 mots et le faire corriger</td><td>30 min</td></tr>
+          <tr><td>Samedi</td><td>Un film ou deux épisodes de série en VO</td><td>1 h 30</td></tr>
+          <tr><td>Dimanche</td><td><a href="#bilan">Bilan</a> : relire le carnet, s'enregistrer 2 minutes, cocher la semaine</td><td>20 min</td></tr>
+        </tbody>
+      </table></div>
+      <p class="callout"><strong>Le jour minimum (20 minutes)</strong> : Anki + 10 minutes d'écoute. Il est autorisé une fois par semaine au maximum.</p>
+    </section>
+
+    <section id="ressources">
+      <div class="kicker">5</div>
+      <h2>Ressources et outils</h2>
+      <p>Tout le plan peut se suivre gratuitement. Seul le professeur en ligne de la phase 3 est payant, et il reste facultatif.</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Besoin</th><th>Outil</th><th>Coût</th><th>Phase</th></tr></thead>
+        <tbody>
+          <tr><td>Conversation et corrections</td><td>Application Claude, mode vocal</td><td>Inclus dans Claude</td><td>1 à 4</td></tr>
+          <tr><td>Vocabulaire</td><td><a href="https://apps.ankiweb.net">Anki</a> (cartes à répétition espacée)</td><td>Gratuit sur PC et Android</td><td>1 à 4</td></tr>
+          <tr><td>Écoute (B1-B2)</td><td><a href="https://www.bbc.co.uk/learningenglish">BBC Learning English</a>, podcast <em>6 Minute English</em></td><td>Gratuit</td><td>1 et 2</td></tr>
+          <tr><td>Écoute (B2-C1)</td><td>Podcasts natifs sur tes centres d'intérêt, YouTube en anglais</td><td>Gratuit</td><td>3 et 4</td></tr>
+          <tr><td>Lecture</td><td><a href="https://www.bbc.com/news">BBC News</a>, <a href="https://www.theguardian.com">The Guardian</a></td><td>Gratuit</td><td>2 à 4</td></tr>
+          <tr><td>Séries et films</td><td>Plateforme de streaming en VO (sous-titres anglais, puis aucun)</td><td>Selon abonnement</td><td>1 à 4</td></tr>
+          <tr><td>Professeur natif</td><td><a href="https://www.italki.com">italki</a> ou <a href="https://preply.com">Preply</a>, 1 cours par semaine</td><td>Environ 10 à 25 € le cours</td><td>3 et 4, facultatif</td></tr>
+          <tr><td>Test de niveau</td><td><a href="https://www.efset.org">EF SET</a></td><td>Gratuit</td><td>Jours 0, 90, 180, 270, 360</td></tr>
+          <tr><td>Carnet d'erreurs</td><td>Un cahier papier ou une note sur le téléphone</td><td>Gratuit</td><td>1 à 4</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <section id="suivi">
+      <div class="kicker">6</div>
+      <h2>Suivi, jalons et évaluations</h2>
+      <p>Cinq bilans jalonnent l'année. Chacun comprend le même test EF SET et le même enregistrement de 2 minutes (« Present yourself and talk about your plans »), pour comparer d'un bilan à l'autre. Les dates se calculent à partir de ta date de départ et tes coches restent enregistrées dans ce navigateur.</p>
+      <ul class="checks" id="gates"></ul>
+      <p><strong>Suivi au quotidien :</strong> un calendrier où l'on coche chaque jour fait (ou une application de suivi d'habitudes). Le dimanche, on note le nombre de jours faits sur 7 et les 3 erreurs les plus fréquentes de la semaine.</p>
+    </section>
+
+    <section id="planb">
+      <div class="kicker">7</div>
+      <h2>Règles d'engagement et plan B</h2>
+      <p>Un retard se rattrape en ajustant le plan, jamais en abandonnant.</p>
+      <h3>Mes règles</h3>
+      <ol class="steps">
+        <li>Je ne saute jamais deux jours de suite.</li>
+        <li>Je parle anglais au moins 15 minutes par jour, même si c'est difficile.</li>
+        <li>Je ne traduis pas mot à mot : je cherche comment un anglophone le dirait.</li>
+        <li>Je fais mes cinq bilans aux dates prévues, même si je pense avoir peu progressé.</li>
+      </ol>
+      <h3>Plan B si ça déraille</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Situation</th><th>Réponse</th></tr></thead>
+        <tbody>
+          <tr><td>J'ai manqué 3 jours ou plus</td><td>Je reprends au jour minimum (20 minutes) pendant une semaine, puis je reviens à 90 minutes</td></tr>
+          <tr><td>Score sous l'objectif à un bilan</td><td>Je garde la phase en cours 30 jours de plus et je décale la suite</td></tr>
+          <tr><td>L'oral bloque (stress, hésitations)</td><td>Je double le temps de conversation et je réduis la lecture</td></tr>
+          <tr><td>Je m'ennuie</td><td>Je change de thème, de série ou de podcast : le contenu doit me plaire</td></tr>
+          <tr><td>Je manque de temps</td><td>Je déplace l'écoute sur les trajets, les tâches ménagères et le sport</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <section id="exercices">
+      <div class="kicker">Cahier d'exercices</div>
+      <h2>Ce qu'on fait concrètement</h2>
+      <p>Chaque activité du plan, avec ce qu'il faut faire. Le thème de la semaine sert à la fois pour la conversation et pour l'écrit du vendredi.</p>
+
+      <h3 id="conversation">Conversation : 52 sujets, un par semaine</h3>
+      <p>On garde le même thème toute la semaine et on change d'angle chaque jour : répéter un thème fixe le vocabulaire. Les questions sont en anglais pour lancer directement la discussion. La semaine en cours est surlignée.</p>
+      <div class="tabs" role="tablist" id="phase-tabs">
+        <button role="tab" type="button" data-p="1" aria-selected="true">Phase 1 · Vie quotidienne</button>
+        <button role="tab" type="button" data-p="2" aria-selected="false">Phase 2 · Débattre</button>
+        <button role="tab" type="button" data-p="3" aria-selected="false">Phase 3 · Professionnel</button>
+        <button role="tab" type="button" data-p="4" aria-selected="false">Phase 4 · Sujets complexes</button>
+      </div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Sem.</th><th>Thème</th><th>Questions pour lancer</th></tr></thead>
+        <tbody id="topics"></tbody>
+      </table></div>
+
+      <h3 id="claude">Lancer la conversation avec Claude</h3>
+      <p>Ouvre l'application Claude, active le mode vocal et lis cette consigne en remplissant les crochets :</p>
+      <div class="prompt"><button class="copy" type="button">Copier</button><pre id="prompt-talk">You are my English conversation partner. I'm a French speaker at [B1/B2/C1] level.
+This week's topic is [thème]. Start with this question: [question du tableau].
+Keep the conversation going with follow-up questions and push me to explain and give examples.
+After each of my answers, correct my main mistakes in one or two short sentences, then continue.
+At the end, give me a written list of my mistakes and five useful expressions from our talk.</pre></div>
+      <p><strong>Un angle différent chaque jour sur le même thème</strong></p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Jour</th><th>Angle</th><th>Exemple (semaine 7, Voyages)</th></tr></thead>
+        <tbody>
+          <tr><td>Lundi</td><td>Raconter (passé)</td><td>Raconte ton meilleur voyage.</td></tr>
+          <tr><td>Mardi</td><td>Décrire</td><td>Décris un lieu que tu as visité.</td></tr>
+          <tr><td>Mercredi</td><td>Donner son avis</td><td>Voyager seul ou en groupe ?</td></tr>
+          <tr><td>Jeudi</td><td>Jeu de rôle</td><td>Tu réserves un hôtel par téléphone, Claude est le réceptionniste.</td></tr>
+          <tr><td>Vendredi</td><td>Imaginer (conditionnel)</td><td>Si tu pouvais vivre dans un autre pays, lequel ?</td></tr>
+          <tr><td>Samedi</td><td>Questions libres</td><td>Claude te pose 10 questions rapides sur le thème.</td></tr>
+          <tr><td>Dimanche</td><td>Monologue</td><td>Parle 3 minutes sans interruption, puis demande une correction complète.</td></tr>
+        </tbody>
+      </table></div>
+
+      <h3 id="ecoute">Écoute (25 minutes par jour)</h3>
+      <p>On écoute un même extrait plusieurs fois avec un but précis à chaque passage. Une seule écoute passive ne fait presque pas progresser.</p>
+      <ol class="steps">
+        <li><strong>Écoute globale.</strong> Une première écoute sans pause, puis un résumé à voix haute en 3 phrases : qui, quoi, pourquoi.</li>
+        <li><strong>Dictée.</strong> Transcrire mot à mot 1 à 2 minutes d'audio, puis comparer avec la transcription officielle. Les mots manqués vont dans Anki.</li>
+        <li><strong>Shadowing.</strong> Répéter en même temps que l'orateur, avec son rythme et son intonation, sur 1 minute. Le meilleur exercice pour l'accent.</li>
+        <li><strong>Chasse aux expressions.</strong> Noter 5 expressions nouvelles et les réutiliser dans la conversation du soir.</li>
+      </ol>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Phase</th><th>Support</th><th>Exercices</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td><em>6 Minute English</em> (BBC), avec transcription</td><td>Lundi, mercredi, vendredi : dictée. Les autres jours : écoute globale et shadowing</td></tr>
+          <tr><td>2</td><td>Vidéos YouTube de 10 à 15 minutes sur le thème de la semaine</td><td>Écoute globale et chasse aux expressions chaque jour, une dictée par semaine</td></tr>
+          <tr><td>3</td><td>Podcasts natifs, journal de la BBC</td><td>Shadowing quotidien de 2 minutes, résumé oral</td></tr>
+          <tr><td>4</td><td>Conférences TED, débats, émissions de radio</td><td>Écoute sans transcription, puis résumé de 2 minutes et avis personnel</td></tr>
+        </tbody>
+      </table></div>
+
+      <h3 id="lecture">Lecture (10 minutes par jour)</h3>
+      <p>On lit pour le plaisir et on ne cherche que les mots qui reviennent ou qui bloquent la compréhension. Pas plus de 5 mots cherchés par séance.</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Phase</th><th>Quoi lire</th><th>Exercice après la lecture</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Articles courts de BBC Learning English, BD ou mangas en anglais</td><td>Lire un paragraphe à voix haute, puis dire en une phrase de quoi parle le texte</td></tr>
+          <tr><td>2</td><td>Un article de BBC News par jour, sur le thème de la semaine si possible</td><td>Noter l'idée principale et 3 arguments, à réutiliser dans le débat du soir</td></tr>
+          <tr><td>3</td><td>Articles d'opinion du Guardian, articles sur ton métier</td><td>Repérer les mots de liaison (<em>however, therefore, whereas</em>…) et en réutiliser 2 dans l'écrit du vendredi</td></tr>
+          <tr><td>4</td><td>Un roman en entier, par exemple un roman déjà lu en français</td><td>Résumer chaque chapitre à voix haute en 1 minute</td></tr>
+        </tbody>
+      </table></div>
+
+      <h3 id="grammaire">Grammaire du mercredi (30 minutes)</h3>
+      <p>Chaque mercredi, on traite un point : celui qui revient le plus dans le carnet d'erreurs, ou à défaut le suivant de la liste.</p>
+      <ol class="steps">
+        <li><strong>Comprendre (5 min).</strong> Demander à Claude : <em>« Explique-moi [le point] en français, avec 5 exemples et les erreurs typiques des francophones. »</em></li>
+        <li><strong>Pratiquer (15 min).</strong> Demander : <em>« Donne-moi 15 phrases à traduire du français vers l'anglais sur ce point, de plus en plus difficiles. Corrige-moi après chaque réponse. »</em></li>
+        <li><strong>Parler (10 min).</strong> Une conversation orale où Claude pose des questions qui obligent à utiliser ce point.</li>
+      </ol>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Phase</th><th>Point de grammaire</th><th>Erreur typique d'un francophone</th></tr></thead>
+        <tbody id="grammar"></tbody>
+      </table></div>
+
+      <h3 id="ecrit">Écrit du vendredi (30 minutes)</h3>
+      <p>On écrit sur le thème de la semaine, sans dictionnaire ni traducteur, puis on fait corriger. Le format change à chaque phase.</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Phase</th><th>Format</th><th>Longueur</th><th>Exemple de sujet</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Récit ou description personnelle</td><td>150 mots</td><td>Sem. 7 : <em>Describe the best trip you've ever taken.</em></td></tr>
+          <tr><td>2</td><td>Texte d'opinion (pour ou contre)</td><td>200 mots</td><td>Sem. 15 : <em>Is working from home better than working in an office?</em></td></tr>
+          <tr><td>3</td><td>E-mail ou lettre professionnelle</td><td>200 à 250 mots</td><td>Sem. 30 : <em>Write to a company to complain about a faulty product and ask for a refund.</em></td></tr>
+          <tr><td>4</td><td>Essai argumenté (introduction, deux parties, conclusion)</td><td>300 mots</td><td>Sem. 43 : <em>Should prisons punish or rehabilitate?</em></td></tr>
+        </tbody>
+      </table></div>
+      <p><strong>Faire corriger son texte.</strong> Colle ton texte dans Claude avec cette consigne :</p>
+      <div class="prompt"><button class="copy" type="button">Copier</button><pre>Correct this text written by a French speaker at [niveau] level.
+List each mistake with the correction and a short explanation in French.
+Then rewrite the text as a native speaker would, and give it a CEFR level.</pre></div>
+      <p>Recopie ensuite à la main les 3 phrases les mieux réécrites : l'écriture manuelle aide à retenir.</p>
+
+      <h3 id="anki">Vocabulaire Anki (15 minutes par jour)</h3>
+      <p>Une carte contient une phrase entière, pas un mot seul. On la crée à partir de ce qu'on a rencontré dans la journée.</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Recto (français)</th><th>Verso (anglais)</th></tr></thead>
+        <tbody>
+          <tr><td>J'ai fini par trouver la solution.</td><td>I eventually <strong>figured out</strong> the solution.</td></tr>
+          <tr><td>Il faut que je m'y habitue.</td><td>I need to <strong>get used to</strong> it.</td></tr>
+          <tr><td>Ça dépend de toi.</td><td>It's <strong>up to</strong> you.</td></tr>
+        </tbody>
+      </table></div>
+      <ol class="steps">
+        <li>Ajouter 20 cartes par jour : les mots de la dictée, les expressions de la conversation, les corrections du carnet.</li>
+        <li>Faire toutes les révisions qu'Anki propose, chaque jour, avant les nouvelles cartes.</li>
+        <li>Lire le verso à voix haute avant de valider la carte.</li>
+        <li>Si une carte est ratée 3 fois, écrire une phrase personnelle avec cette expression.</li>
+      </ol>
+
+      <h3 id="bilan">Bilan du dimanche (20 minutes)</h3>
+      <p>Le bilan sert à voir ses progrès et à choisir quoi travailler la semaine suivante.</p>
+      <ul class="plain">
+        <li>Relire le carnet d'erreurs de la semaine et entourer les 3 fautes les plus fréquentes.</li>
+        <li>S'enregistrer 2 minutes sur le thème de la semaine, sans notes.</li>
+        <li>Réécouter l'enregistrement et noter 2 points à améliorer (prononciation, hésitations, fautes).</li>
+        <li>Une fois par mois, écouter l'enregistrement du jour 0 pour mesurer le chemin parcouru.</li>
+        <li>Choisir le point de grammaire du mercredi suivant parmi les 3 fautes entourées.</li>
+        <li>Cocher la semaine dans le calendrier et noter le nombre de jours faits sur 7.</li>
+      </ul>
+    </section>
+  </main>
+</div>
+
+<footer>
+  <div class="wrap">L'anglais en 360 jours · Plan libre de partage. Ta date de départ et tes coches restent dans ton navigateur : elles ne sont envoyées nulle part.</div>
+</footer>
+
+<script>
+const TOPICS = [
+  ["Se présenter", "Tell me about yourself. What does a typical day look like for you?"],
+  ["Famille et amis", "Who are you closest to, and why? How has your family shaped who you are?"],
+  ["Travail ou études", "What do you like and dislike about your job or studies? What was your dream job as a child?"],
+  ["Cuisine", "Recommend a dish from your country and explain how it's made. Do you prefer cooking or eating out?"],
+  ["Loisirs et sport", "What do you do to relax? What hobby would you like to take up?"],
+  ["Ta ville", "Describe your city to someone who has never been there. What would you change about it?"],
+  ["Voyages", "Tell me about the best trip you've ever taken. Where would you go with unlimited money?"],
+  ["Souvenirs d'enfance", "What's your favourite childhood memory? What was school like for you?"],
+  ["Films et séries", "Tell me the plot of the last series you watched, without spoilers. Which character are you most like?"],
+  ["Musique", "What do you listen to, and when? Tell me about a song that means something to you."],
+  ["Santé et bien-être", "What do you do to stay healthy? Are people more stressed today than before?"],
+  ["Argent et achats", "Are you a saver or a spender? Tell me about a purchase you regretted."],
+  ["Projets", "What are your goals for this year? Why do you want to speak English fluently?"],
+  ["Réseaux sociaux", "Do social media bring people together or drive them apart?"],
+  ["Télétravail", "Is working from home better than working in an office?"],
+  ["Éducation", "Should university be free for everyone? What should schools teach that they don't?"],
+  ["Environnement", "What can individuals really do about climate change? Would you give up flying?"],
+  ["Ville ou campagne", "Would you rather live in a big city or in the countryside? Why?"],
+  ["Intelligence artificielle", "Will AI create more jobs than it destroys? How do you use it in daily life?"],
+  ["Influenceurs", "Are influencers good role models? Would you like to be famous?"],
+  ["Sport et argent", "Are professional athletes paid too much?"],
+  ["Tourisme de masse", "Should popular cities limit the number of tourists?"],
+  ["Alimentation", "Should junk food be taxed like cigarettes? Could you go vegetarian?"],
+  ["Couple et famille", "Is marriage still important today? What makes a relationship last?"],
+  ["Argent et bonheur", "Can money buy happiness?"],
+  ["Bilan de mi-parcours", "Debate: \"Learning a language is easier for children than for adults.\""],
+  ["Entretien d'embauche", "Walk me through your CV. What is your greatest weakness?"],
+  ["Négocier", "Role-play: negotiate your salary, or the price of a used car, with me."],
+  ["Réunion", "Role-play: present a project and defend its budget against my objections."],
+  ["Réclamation", "Role-play: complain about a faulty product and get a refund."],
+  ["Présentation orale", "Give me a 3-minute talk on a subject you know well, then take my questions."],
+  ["Résoudre un problème", "Tell me about a difficult situation you faced and how you solved it."],
+  ["Actualité", "Summarise a news story from this week and give your opinion on it."],
+  ["Économie", "How does inflation affect ordinary people?"],
+  ["Santé publique", "Should healthcare be completely free?"],
+  ["Inventions", "Which invention changed the world the most?"],
+  ["Culture anglophone", "What surprises you about British or American culture?"],
+  ["Hypothèses", "What would you do if you won the lottery? If you could live in any era, which would you choose?"],
+  ["Bilan", "Tell me the story of your English journey so far."],
+  ["Éthique", "Is it ever right to lie?"],
+  ["Démocratie", "Should voting be compulsory?"],
+  ["Identité et immigration", "What makes someone belong to a country?"],
+  ["Justice", "Should prisons punish or rehabilitate?"],
+  ["Espace", "Should we try to colonise Mars?"],
+  ["Génétique", "Should parents be allowed to choose their baby's genes?"],
+  ["Liberté d'expression", "Should there be limits on free speech online?"],
+  ["Avenir du travail", "Would a four-day week or a universal basic income work?"],
+  ["Sens de la vie", "What makes a life meaningful?"],
+  ["Mondialisation", "Has globalisation done more good than harm?"],
+  ["Art", "Is street art real art? Should museums be free?"],
+  ["Ton pays", "Explain your country's history and challenges to a foreigner."],
+  ["Grand bilan", "Talk for 30 minutes about your year: what changed, what you learned, what comes next."]
+];
+const GRAMMAR = [
+  [1, "Present perfect ou past simple", "<em>I have seen him yesterday</em> au lieu de <em>I saw him yesterday</em>"],
+  [1, "<em>For</em>, <em>since</em> et <em>ago</em>", "<em>I live here since 2020</em> au lieu de <em>I've lived here since 2020</em>"],
+  [1, "Le futur : <em>will</em>, <em>going to</em>, présent continu", "<em>I will see my doctor tomorrow</em> pour un rendez-vous déjà pris"],
+  [1, "Questions et auxiliaires", "<em>Where you live?</em> au lieu de <em>Where do you live?</em>"],
+  [1, "Indénombrables", "<em>informations, advices</em> au lieu de <em>information, advice</em>"],
+  [2, "Les conditionnels (types 1, 2 et 3)", "<em>If I would have time</em> au lieu de <em>If I had time</em>"],
+  [2, "Verbe + <em>-ing</em> ou + <em>to</em>", "<em>I'm used to work</em> au lieu de <em>I'm used to working</em>"],
+  [2, "Phrasal verbs les plus fréquents", "<em>I search my keys</em> au lieu de <em>I'm looking for my keys</em>"],
+  [2, "Comparatifs et superlatifs", "<em>more easy</em> au lieu de <em>easier</em>"],
+  [3, "La voix passive", "<em>It has been decided by the board</em> : savoir l'utiliser à l'écrit pro"],
+  [3, "Le discours indirect", "<em>He said me that</em> au lieu de <em>He told me that</em>"],
+  [3, "Les modaux de déduction", "<em>He must have forgotten</em>, <em>She can't have known</em>"],
+  [3, "Les faux-amis", "<em>actually, eventually, sensible, library</em>"],
+  [4, "Inversion et emphase", "<em>Never have I seen</em>, <em>What I need is</em>…"],
+  [4, "<em>Wish</em> et <em>if only</em>", "<em>I wish I would know</em> au lieu de <em>I wish I knew</em>"],
+  [4, "Nuancer : <em>tend to, arguably, to some extent</em>", "Des avis trop tranchés, faute de nuances"]
+];
+const PHASES = ["Fondations", "Fluidité", "Précision", "Autonomie"];
+const ANGLES = ["Dimanche : monologue de 3 minutes", "Lundi : raconter (passé)", "Mardi : décrire", "Mercredi : donner son avis", "Jeudi : jeu de rôle", "Vendredi : imaginer (conditionnel)", "Samedi : questions libres"];
+const GATES = [[0, "Test EF SET de départ, premier enregistrement, installation d'Anki."], [90, "Objectif : score EF SET de 51 ou plus (B2)."], [180, "Objectif : score de 56 ou plus (B2 solide)."], [270, "Objectif : score de 61 ou plus (C1)."], [360, "Objectif : score de 65 ou plus (C1 confirmé) et tous les critères de réussite validés."]];
+
+const $ = id => document.getElementById(id);
+const store = {
+  get(k, d) { try { const v = localStorage.getItem("ang360-" + k); return v === null ? d : JSON.parse(v); } catch (e) { return d; } },
+  set(k, v) { try { localStorage.setItem("ang360-" + k, JSON.stringify(v)); } catch (e) {} }
+};
+const iso = d => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+const parse = s => { const [y, m, d] = s.split("-").map(Number); return new Date(y, m - 1, d); };
+const addDays = (d, n) => { const r = new Date(d); r.setDate(r.getDate() + n); return r; };
+const fmt = d => d.toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" });
+const fmtShort = d => d.toLocaleDateString("fr-FR", { day: "numeric", month: "short" });
+
+let start = parse(store.get("start", iso(new Date())));
+let shownPhase = null;
+
+function currentDay() {
+  const today = new Date(); today.setHours(0, 0, 0, 0);
+  return Math.round((today - start) / 864e5) + 1;
+}
+
+function renderTopics(p) {
+  shownPhase = p;
+  document.querySelectorAll("#phase-tabs button").forEach(b => b.setAttribute("aria-selected", String(+b.dataset.p === p)));
+  const week = Math.min(52, Math.max(1, Math.ceil(currentDay() / 7)));
+  const rows = [];
+  for (let i = (p - 1) * 13; i < p * 13; i++) {
+    const [t, q] = TOPICS[i];
+    rows.push(`<tr class="${i + 1 === week && currentDay() >= 1 ? "current" : ""}"><td class="num">${i + 1}</td><td>${t}</td><td lang="en">${q}</td></tr>`);
+  }
+  $("topics").innerHTML = rows.join("");
+}
+
+function render() {
+  $("start").value = iso(start);
+  const day = currentDay();
+  const clamped = Math.min(360, Math.max(1, day));
+  const phase = Math.min(4, Math.ceil(clamped / 90));
+  const week = Math.min(52, Math.ceil(clamped / 7));
+  if (day < 1) {
+    $("daynum").innerHTML = `J-${1 - day}<small>avant le départ</small>`;
+  } else if (day > 360) {
+    $("daynum").innerHTML = `Terminé<small>360 jours accomplis</small>`;
+  } else {
+    $("daynum").innerHTML = `Jour ${day}<small>sur 360</small>`;
+  }
+  $("bar").style.width = (Math.max(0, Math.min(360, day)) / 360 * 100) + "%";
+  $("t-phase").textContent = `Phase ${phase} : ${PHASES[phase - 1]}`;
+  $("t-theme").textContent = `Semaine ${week} : ${TOPICS[week - 1][0]}`;
+  $("t-angle").textContent = ANGLES[new Date().getDay()];
+  const next = GATES.find(g => g[0] >= Math.max(day, 0)) || GATES[GATES.length - 1];
+  $("t-gate").textContent = `Jour ${next[0]}, le ${fmt(addDays(start, next[0] - 1))}`;
+
+  document.querySelectorAll(".phase").forEach(el => {
+    el.classList.toggle("now", +el.dataset.phase === phase && day >= 1 && day <= 360);
+    const [a, b] = el.querySelector(".dates").dataset.range.split("-").map(Number);
+    el.querySelector(".dates").textContent = `Du ${fmtShort(addDays(start, a - 1))} au ${fmtShort(addDays(start, b - 1))}`;
+  });
+
+  const done = store.get("gates", {});
+  $("gates").innerHTML = GATES.map(([n, text]) => `<li><label><input type="checkbox" id="gate-${n}" ${done[n] ? "checked" : ""}>
+    <span><strong>Jour ${n}</strong> <span class="date">(${fmt(addDays(start, n - 1))})</span> : ${text}</span></label></li>`).join("");
+  GATES.forEach(([n]) => $("gate-" + n).onchange = e => { const d = store.get("gates", {}); d[n] = e.target.checked; store.set("gates", d); });
+
+  renderTopics(shownPhase || phase);
+}
+
+$("start").addEventListener("change", e => {
+  if (!e.target.value) return;
+  start = parse(e.target.value);
+  store.set("start", e.target.value);
+  shownPhase = null;
+  render();
+});
+document.querySelectorAll("#phase-tabs button").forEach(b => b.onclick = () => renderTopics(+b.dataset.p));
+$("grammar").innerHTML = GRAMMAR.map(([p, point, err]) => `<tr><td class="num">${p}</td><td>${point}</td><td>${err}</td></tr>`).join("");
+document.querySelectorAll(".copy").forEach(btn => btn.onclick = async () => {
+  const text = btn.nextElementSibling.textContent;
+  try { await navigator.clipboard.writeText(text); btn.textContent = "Copié"; }
+  catch (e) { btn.textContent = "Sélectionne le texte"; }
+  setTimeout(() => btn.textContent = "Copier", 2000);
+});
+render();
+</script>
+</body>
+</html>
