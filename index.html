@@ -425,6 +425,12 @@ footer { background: #0a1d34; color: rgba(255,255,255,.6); padding: 24px 0 calc(
             <div class="field"><label for="level">Mon niveau</label>
               <select id="level"><option>B1</option><option selected>B2</option><option>C1</option></select></div>
           </div>
+          <div class="field"><label for="help">Aide en français</label>
+            <select id="help">
+              <option value="words" selected>Traduire les mots difficiles</option>
+              <option value="full">Traduire chaque message en entier</option>
+              <option value="none">Aucune aide, tout en anglais</option>
+            </select></div>
         </div>
 
         <div class="dash-main">
@@ -610,6 +616,9 @@ footer { background: #0a1d34; color: rgba(255,255,255,.6); padding: 24px 0 calc(
           <div class="ptitle">Consigne à lire à Claude en mode vocal</div>
           <button class="copy" type="button" data-copy="promptTalk">Copier</button>
           <pre id="promptTalk">You are my English conversation partner. I'm a French speaker at [B1/B2/C1] level.
+Speak simple English adapted to my level, with short sentences.
+After any difficult word or expression, add the French translation in brackets.
+If I say "I don't understand", say it again in simpler words. If I ask "what does ... mean?", explain it briefly in French.
 This week's topic is [thème]. Start with this question: [question].
 Keep the conversation going with follow-up questions and push me to explain and give examples.
 After each of my answers, correct my main mistakes in one or two short sentences, then continue.
@@ -1030,14 +1039,29 @@ function renderAll() { renderDashboard(); renderPhases(); renderTopics(shownPhas
 $("start").addEventListener("change", e => { if (!e.target.value) return; start = parse(e.target.value); store.set("start", e.target.value); shownPhase = null; renderAll(); toast("Date de départ enregistrée"); });
 $("level").value = store.get("level", "B2");
 $("level").addEventListener("change", e => store.set("level", e.target.value));
+$("help").value = store.get("help", "words");
+$("help").addEventListener("change", e => store.set("help", e.target.value));
+const STYLE = {
+  B1: "Speak simple English: common everyday words, short sentences (max 15 words), and only one question at a time.",
+  B2: "Speak clear, natural English. Avoid rare words and long sentences, and ask one question at a time.",
+  C1: "Speak natural English like a native speaker, with idioms, but stay clear."
+};
+const HELP = {
+  words: "After any word or expression that might be difficult for me, add the French translation in brackets, for example: a hobby (un passe-temps).",
+  full: "After each of your messages, add a full French translation on a new line, starting with \"FR:\".",
+  none: "Do not use any French."
+};
 $("copyToday").addEventListener("click", () => {
-  const w = weekOf(clampDay()), [theme, q] = TOPICS[w - 1], a = ANGLES[new Date().getDay()];
-  copy(`You are my English conversation partner. I'm a French speaker at ${$("level").value} level.
+  const w = weekOf(clampDay()), [theme, q] = TOPICS[w - 1], a = ANGLES[new Date().getDay()], lvl = $("level").value;
+  copy(`You are my English conversation partner. I'm a French speaker at ${lvl} level.
+${STYLE[lvl]}
+${HELP[$("help").value]}
+If I say "I don't understand", say it again in simpler words. If I ask "what does ... mean?" or use a French word, explain it briefly in French, then continue in English.
 This week's topic is "${theme}". Today's angle: ${a[1]} (${a[2]}).
 Start with this question: ${q}
 Keep the conversation going with follow-up questions and push me to explain and give examples.
 After each of my answers, correct my main mistakes in one or two short sentences, then continue.
-At the end, give me a written list of my mistakes and five useful expressions from our talk.`);
+At the end, give me a written list of my mistakes and five useful expressions from our talk, with their French translation.`);
 });
 document.querySelectorAll("[data-copy]").forEach(b => b.addEventListener("click", () => copy($(b.dataset.copy).textContent)));
 document.querySelectorAll("#topicTabs button").forEach(b => b.addEventListener("click", () => renderTopics(+b.dataset.p)));
