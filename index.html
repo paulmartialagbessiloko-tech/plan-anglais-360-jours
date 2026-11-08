@@ -6,6 +6,12 @@
 <title>L'anglais en 360 jours</title>
 <meta name="description" content="Passe d'un niveau intermédiaire au niveau C1 en anglais en 360 jours : 1 h 30 par jour, 52 sujets de conversation, exercices guidés et un bilan tous les 90 jours.">
 <meta name="theme-color" content="#0f2a4a">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Anglais 360">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta property="og:title" content="L'anglais en 360 jours">
 <meta property="og:description" content="Un plan complet et gratuit pour atteindre le niveau C1 en anglais.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f2a4a'/%3E%3Ctext x='32' y='42' font-family='Arial' font-weight='700' font-size='26' text-anchor='middle' fill='%23ffc857'%3E360%3C/text%3E%3C/svg%3E">
@@ -372,6 +378,7 @@ footer { background: #0a1d34; color: rgba(255,255,255,.6); padding: 24px 0 calc(
       <div class="hero-actions">
         <a class="btn btn-sun" href="#aujourdhui">Commencer mon parcours →</a>
         <a class="btn btn-ghost" href="#programme">Voir le programme</a>
+        <button class="btn btn-ghost" id="installApp" type="button" hidden>📲 Installer l'app</button>
       </div>
     </div>
     <div class="hero-card" aria-label="Les 4 phases en un coup d'œil">
@@ -931,7 +938,7 @@ const clampDay = () => Math.min(360, Math.max(1, dayNum()));
 const phaseOf = d => Math.min(4, Math.ceil(d / 90));
 const weekOf = d => Math.min(52, Math.ceil(d / 7));
 
-function toast(msg) { const t = $("toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(toast.h); toast.h = setTimeout(() => t.classList.remove("show"), 2200); }
+function toast(msg, ms = 2200) { const t = $("toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(toast.h); toast.h = setTimeout(() => t.classList.remove("show"), ms); }
 async function copy(text) {
   try { await navigator.clipboard.writeText(text); toast("Copié ! Colle-le dans Claude."); }
   catch (e) { toast("Copie impossible : sélectionne le texte à la main."); }
@@ -1081,6 +1088,25 @@ menu.querySelectorAll("a").forEach(a => a.addEventListener("click", () => { menu
 
 renderGrammar();
 renderAll();
+
+// ---- Application installable (PWA) ----
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(() => {}));
+}
+(() => {
+  const btn = $("installApp");
+  const standalone = matchMedia("(display-mode: standalone)").matches || navigator.standalone;
+  if (standalone) return;
+  const ios = /iphone|ipad|ipod/i.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  let deferred = null;
+  window.addEventListener("beforeinstallprompt", e => { e.preventDefault(); deferred = e; btn.hidden = false; });
+  window.addEventListener("appinstalled", () => { btn.hidden = true; toast("App installée ✓"); });
+  if (ios) btn.hidden = false;
+  btn.addEventListener("click", async () => {
+    if (deferred) { deferred.prompt(); await deferred.userChoice; deferred = null; btn.hidden = true; }
+    else if (ios) { toast("Dans Safari : touche Partager ⬆️ puis « Sur l'écran d'accueil »", 6000); }
+  });
+})();
 </script>
 </body>
 </html>
